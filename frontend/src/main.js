@@ -6,7 +6,7 @@ const menuData = [
     name: 'Pita chlieb',
     price: '1.30 €',
     description: 'Tradičný grécky pita chlieb.',
-    Image:"/src/assets/menu/pita.jpg"
+    Image:"/menu/pita.jpg"
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const menuData = [
     name: 'Vyprážaný baklažán s tzatziki dipom',
     price: '5.40 €',
     description: 'Vyprážaný baklažán podávaný s tzatziki dipom.',
-    Image:"/src/assets/menu/Vyprážaný baklažán s tzatziki dipom.avif"
+    Image:"/menu/Vyprážaný baklažán s tzatziki dipom.avif"
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const menuData = [
     name: 'Tirokroketes',
     price: '5.50 €',
     description: 'Vyprážané syrové guľôčky.',
-    Image:"/src/assets/menu/Tirokroketes.webp"
+    Image:"/menu/Tirokroketes.webp"
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const menuData = [
     name: 'Feta psiti',
     price: '5.50 €',
     description: 'Grilovaný syr feta s paradajkami a oreganom.',
-    Image:"/src/assets/menu/Feta psiti.avif"
+    Image:"/menu/Feta psiti.avif"
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const menuData = [
     name: 'Tiropitakia',
     price: '5.50 €',
     description: 'Pečené lístkové cesto plnené syrom feta, medom a sezamom.',
-    Image:"/src/assets/menu/Tiropitakia.jpeg"
+    Image:"/menu/Tiropitakia.jpeg"
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const menuData = [
     name: 'Dolmadakia',
     price: '5.20 €',
     description: 'Vínne listy plnené ryžou.',
-    Image:"/src/assets/menu/Dolmadakia.avif"
+    Image:"/menu/Dolmadakia.avif"
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const menuData = [
     name: 'Hranolky z čerstvých zemiakov',
     price: '3.80 €',
     description: 'Domáce grécke hranolky z čerstvých zemiakov.',
-    Image:"/src/assets/menu/Hranolky.avif"
+    Image:"/menu/Hranolky.avif"
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const menuData = [
     name: 'Grilovaná červená paprika plnená fetou',
     price: '5.40 €',
     description: 'Grilovaná červená paprika plnená syrom feta.',
-    Image:"/src/assets/menu/paprika.avif"
+    Image:"/menu/paprika.avif"
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ const menuData = [
     name: 'Vyprážaná cuketa',
     price: '5.20 €',
     description: 'Chrumkavá vyprážaná cuketa.',
-    Image:"/src/assets/menu/Vyprážaná CUKETA.avif"
+    Image:"/menu/Vyprážaná CUKETA.avif"
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ const menuData = [
     name: 'Pikilia Orektikon',
     price: '10.60 €',
     description: 'Mix najlepších predjedál.',
-    Image:"/src/assets/menu/Pikilia Orektikon.jpg"
+    Image:"/menu/Pikilia Orektikon.jpg"
   },
   {
     id: 11,
@@ -86,7 +86,7 @@ const menuData = [
     name: 'Pikilia Kreta',
     price: '10.60 €',
     description: 'Mix tradičných krétskych predjedál.',
-    Image:"/src/assets/menu/Pikilia Kreta.avif"
+    Image:"/menu/Pikilia Kreta.avif"
   },
 
   
@@ -97,7 +97,7 @@ const menuData = [
     name: 'Tzatziki',
     price: '4.90 €',
     description: 'Grécky jogurt s uhorkou a cesnakom.',
-    Image:"/src/assets/menu/Tzaziky.avif"
+    Image:"/menu/Tzaziky.avif"
   },
   {
     id: 13,
@@ -105,7 +105,7 @@ const menuData = [
     name: 'Syrová nátierka',
     price: '4.90 €',
     description: 'Tradičná grécka syrová nátierka.',
-    Image:"/src/assets/menu/Tzaziky.avif"
+    Image:"/menu/Tzaziky.avif"
   },
   {
     id: 14,
@@ -113,7 +113,7 @@ const menuData = [
     name: 'Baklažánová nátierka',
     price: '4.90 €',
     description: 'Nátierka z pečeného baklažánu.',
-    Image:"/src/assets/menu/Baklažanová.avif"
+    Image:"/menu/Baklažanová.avif"
   },
   {
     id: 15,
@@ -121,7 +121,7 @@ const menuData = [
     name: 'Hummus',
     price: '4.90 €',
     description: 'Tradičná nátierka z cíceru.',
-    Image:"/src/assets/menu/hummus.avif"
+    Image:"/menu/hummus.avif"
   },
   {
     id: 16,
@@ -129,7 +129,7 @@ const menuData = [
     name: 'Taramas',
     price: '4.90 €',
     description: 'Grécka rybacia nátierka z rybích ikier.',
-    Image:"/src/assets/menu/taramas.png"
+    Image:"/menu/taramas.png"
   },
 
   // ŠALÁTY
@@ -139,7 +139,7 @@ const menuData = [
     name: 'Grécky šalát – Choriatiki so syrom Feta',
     price: '8.20 €',
     description: 'Grécky šalát so syrom feta.',
-    Image:"/src/assets/menu/grecky salat.webp"
+    Image:"/menu/grecky salat.webp"
   },
   {
     id: 18,
@@ -147,7 +147,7 @@ const menuData = [
     name: 'Grécky šalát so syrom Halloumi',
     price: '9.70 €',
     description: 'Grécky šalát s grilovaným syrom Halloumi.',
-    Image:"/src/assets/menu/grecky salat chalumi.webp"
+    Image:"/menu/grecky salat chalumi.webp"
   },
   {
     id: 19,
@@ -155,7 +155,7 @@ const menuData = [
     name: 'Kréta šalát',
     price: '8.30 €',
     description: 'Grécky šalát so suchármi Dakos z ostrova Kréta.',
-    Image:"/src/assets/menu/Kréta šalát.avif"
+    Image:"/menu/Kréta šalát.avif"
   },
   {
     id: 20,
@@ -163,7 +163,7 @@ const menuData = [
     name: 'Cézar šalát',
     price: '7.40 €',
     description: 'Zelený šalát s kuracím gyros mäsom a domácim dresingom.',
-    Image:"/src/assets/menu/Cezar šalát.avif"
+    Image:"/menu/Cezar šalát.avif"
   },
   {
     id: 21,
@@ -171,7 +171,7 @@ const menuData = [
     name: 'Dakos',
     price: '5.60 €',
     description: 'Krétsky suchár s paradajkami, fetou a bylinkami.',
-    Image:"/src/assets/menu/dakos.webp"
+    Image:"/menu/dakos.webp"
   },
   {
     id: 22,
@@ -179,7 +179,7 @@ const menuData = [
     name: 'Chorta',
     price: '6.90 €',
     description: 'Varená divoká zelenina s extra panenským olivovým olejom a čerstvou citrónovou šťavou.',
-    Image:"/src/assets/menu/chorta.jpg"
+    Image:"/menu/chorta.jpg"
   },
   {
     id: 23,
@@ -187,7 +187,7 @@ const menuData = [
     name: 'Olivy',
     price: '5.10 €',
     description: 'Grécke olivy.',
-    Image:"/src/assets/menu/Olivy.avif"
+    Image:"/menu/Olivy.avif"
   },
   {
     id: 24,
@@ -195,7 +195,7 @@ const menuData = [
     name: 'Grilovaný syr Halloumi s rukolou',
     price: '7.80 €',
     description: 'Grilovaný syr Halloumi podávaný s čerstvou rukolou.',
-    Image:"/src/assets/menu/chalumi grill.jpg"
+    Image:"/menu/chalumi grill.jpg"
   },
   {
     id: 25,
@@ -203,7 +203,7 @@ const menuData = [
     name: 'Syr Feta',
     price: '5.90 €',
     description: 'Tradičný grécky syr feta.',
-    Image:"/src/assets/menu/feta.jpg"
+    Image:"/menu/feta.jpg"
   },
   // PITA
   {
@@ -212,7 +212,7 @@ const menuData = [
     name: 'Pita Gyros Chirinos',
     price: '5.50 €',
     description: 'Pita plnená bravčovým gyrosom, tzatziki, paradajkami, cibuľou a hranolkami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 27,
@@ -220,7 +220,7 @@ const menuData = [
     name: 'Pita Gyros Kotopulo',
     price: '5.50 €',
     description: 'Pita plnená kuracím gyrosom, tzatziki, paradajkami, cibuľou a hranolkami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 28,
@@ -228,7 +228,7 @@ const menuData = [
     name: 'Pita Souvlaki Chirino',
     price: '5.70 €',
     description: 'Pita plnená bravčovým souvlaki, tzatziki, paradajkami, cibuľou a hranolkami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 29,
@@ -236,7 +236,7 @@ const menuData = [
     name: 'Pita Souvlaki Kotopulo',
     price: '5.70 €',
     description: 'Pita plnená kuracím souvlaki, tzatziki, paradajkami, cibuľou a hranolkami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 30,
@@ -244,7 +244,7 @@ const menuData = [
     name: 'Pita Souvlaki Arni',
     price: '6.50 €',
     description: 'Pita plnená jahňacím souvlaki, tzatziki, paradajkami, cibuľou a hranolkami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 31,
@@ -252,7 +252,7 @@ const menuData = [
     name: 'Pita so syrom Halloumi',
     price: '5.90 €',
     description: 'Pita plnená grilovaným syrom Halloumi.',
-    Image:"/src/assets/menu/pita veg.avif"
+    Image:"/menu/pita veg.avif"
   },
   {
     id: 32,
@@ -260,7 +260,7 @@ const menuData = [
     name: 'Pita so syrom Feta',
     price: '5.90 €',
     description: 'Pita plnená syrom feta.',
-    Image:"/src/assets/menu/pita veg.avif"
+    Image:"/menu/pita veg.avif"
   },
   {
     id: 33,
@@ -268,7 +268,7 @@ const menuData = [
     name: 'Pita krevetová',
     price: '6.50 €',
     description: 'Pita plnená grilovanými krevetami.',
-    Image:"/src/assets/menu/pita gyros.avif"
+    Image:"/menu/pita gyros.avif"
   },
   {
     id: 34,
@@ -276,7 +276,7 @@ const menuData = [
     name: 'Pita bifteky jahňacie',
     price: '6.50 €',
     description: 'Pita plnená jahňacím bifteki.',
-    Image:"/src/assets/menu/pita kebap.avif"
+    Image:"/menu/pita kebap.avif"
   },
   {
     id: 35,
@@ -284,7 +284,7 @@ const menuData = [
     name: 'Pita chobotnica grilovaná',
     price: '7.50 €',
     description: 'Pita plnená grilovanou chobotnicou.',
-    Image:"/src/assets/menu/pita chobotnica.png"
+    Image:"/menu/pita chobotnica.png"
   },
 
 
@@ -295,7 +295,7 @@ const menuData = [
     name: 'Gyros tanier Chirinos',
     price: '9.80 €',
     description: 'Bravčový gyros podávaný s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
-    Image:"/src/assets/menu/Gyros tanier Chirinos.avif"
+    Image:"/menu/Gyros tanier Chirinos.avif"
   },
   {
     id: 37,
@@ -303,7 +303,7 @@ const menuData = [
     name: 'Gyros tanier Kotopulo',
     price: '9.80 €',
     description: 'Kurací gyros podávaný s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
-    Image:"/src/assets/menu/Gyros tanier kotopulo.avif"
+    Image:"/menu/Gyros tanier kotopulo.avif"
   },
   {
     id: 38,
@@ -311,7 +311,7 @@ const menuData = [
     name: 'Souvlaki kuracie porcia',
     price: '10.50 €',
     description: 'Tri kuracie špízy podávané s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
-    Image:"/src/assets/menu/Suvlaki kuracie porcia.avif"
+    Image:"/menu/Suvlaki kuracie porcia.avif"
   },
 
    {
@@ -320,7 +320,7 @@ const menuData = [
   name: 'Souvlaki bravčové porcia',
   price: '10.50 €',
   description: 'Tri bravčové špízy, 500 g.',
-  Image:"/src/assets/menu/Suvlaki bravčové porcia.avif"
+  Image:"/menu/Suvlaki bravčové porcia.avif"
 },
 {
   id: 40,
@@ -328,7 +328,7 @@ const menuData = [
   name: 'Souvlaki jahňacie porcia',
   price: '13.80 €',
   description: 'Tri jahňacie špízy, 500 g.',
-  Image:"/src/assets/menu/Suvlaki bravčové porcia.avif"
+  Image:"/menu/Suvlaki bravčové porcia.avif"
 },
 {
   id: 41,
@@ -336,7 +336,7 @@ const menuData = [
   name: 'Souvlaki mix porcia',
   price: '12.70 €',
   description: 'Mix bravčového, kuracieho a jahňacieho souvlaki, 500 g.',
-  Image:"/src/assets/menu/suvlaki mix.png"
+  Image:"/menu/suvlaki mix.png"
 },
 {
   id: 42,
@@ -344,7 +344,7 @@ const menuData = [
   name: 'Souvlaki so syrom Halloumi porcia',
   price: '11.40 €',
   description: 'Tri špízy so syrom Halloumi, 500 g.',
-  Image:"/src/assets/menu/SUVLAKI zo SYRA CHALUMI.avif"
+  Image:"/menu/SUVLAKI zo SYRA CHALUMI.avif"
 },
 {
   id: 43,
@@ -352,7 +352,7 @@ const menuData = [
   name: 'Bifteky Jemisto – plnené syrom Feta',
   price: '11.20 €',
   description: 'Grécke bravčové bifteki plnené syrom feta, 300 g.',
-  Image:"/src/assets/menu/Bifteky jemisto.avif"
+  Image:"/menu/Bifteky jemisto.avif"
 },
 {
   id: 44,
@@ -360,7 +360,7 @@ const menuData = [
   name: 'Grilované grécke klobásky s bylinkami',
   price: '9.80 €',
   description: 'Grilované grécke klobásky ochutené stredomorskými bylinkami, 200 g.',
-  Image:"/src/assets/menu/KLOBÁSKY.avif"
+  Image:"/menu/KLOBÁSKY.avif"
 },
 {
   id: 45,
@@ -368,7 +368,7 @@ const menuData = [
   name: 'Bifteky jahňacie porcia',
   price: '13.80 €',
   description: 'Grilované jahňacie bifteki, 200 g.',
-  Image:"/src/assets/menu/Bifteky jemisto.avif"
+  Image:"/menu/Bifteky jemisto.avif"
 },
 {
   id: 46,
@@ -376,7 +376,7 @@ const menuData = [
   name: 'Britzola – grilovaná bravčová kotleta',
   price: '16.50 €',
   description: 'Grilovaná bravčová kotleta, 200 g.',
-  Image:"/src/assets/menu/britzola.jpg"
+  Image:"/menu/britzola.jpg"
 },
 {
   id: 47,
@@ -384,7 +384,7 @@ const menuData = [
   name: 'Pita Fan',
   price: '12.10 €',
   description: 'Pečená pita s bravčovým alebo kuracím gyrosom, slaninkou, syrom, paradajkami, šalátom, cibuľou, majonézovým dresingom a hranolkami.',
-  Image:"/src/assets/menu/pitafan.avif"
+  Image:"/menu/pitafan.avif"
 },
 {
   id: 48,
@@ -392,7 +392,7 @@ const menuData = [
   name: 'Arni paidakia – grilované jahňacie kotlety',
   price: '18.80 €',
   description: 'Grilované jahňacie kotlety, 300 g.',
-  Image:"/src/assets/menu/arni pajdakia.jpg"
+  Image:"/menu/arni pajdakia.jpg"
 },
 {
   id: 49,
@@ -400,7 +400,7 @@ const menuData = [
   name: 'Pikilia Kreaton – mix najlepšieho mäsa',
   price: '19.90 €',
   description: 'Mix kuracieho a bravčového souvlaki, klobásky, bifteki a gyrosu.',
-  Image:"/src/assets/menu/mix masa.png"
+  Image:"/menu/mix masa.png"
   },
 
   // RYBY A PLODY MORA
@@ -410,7 +410,7 @@ const menuData = [
     name: 'Vyprážané rybky Gavros',
     price: '9.20 €',
     description: 'Vyprážané malé rybky Gavros, 200 g.',
-    Image:"/src/assets/menu/Gavros.avif"
+    Image:"/menu/Gavros.avif"
   },
   {
     id: 51,
@@ -418,7 +418,7 @@ const menuData = [
     name: 'Vyprážané rybky Atherina',
     price: '9.20 €',
     description: 'Vyprážané malé rybky Atherina, 200 g.',
-    Image:"/src/assets/menu/Atherina.avif"
+    Image:"/menu/Atherina.avif"
   },
   {
     id: 52,
@@ -426,7 +426,7 @@ const menuData = [
     name: 'Kalamáre vyprážané',
     price: '11.40 €',
     description: 'Vyprážané kalamáre, 200 g.',
-    Image:"/src/assets/menu/kalamare vypr.png"
+    Image:"/menu/kalamare vypr.png"
   },
   {
     id: 53,
@@ -434,7 +434,7 @@ const menuData = [
     name: 'Kalamáre grilované',
     price: '11.40 €',
     description: 'Grilované kalamáre, 200 g.',
-    Image:"/src/assets/menu/Kalamáre grilované.avif"
+    Image:"/menu/Kalamáre grilované.avif"
   },
   {
     id: 54,
@@ -442,7 +442,7 @@ const menuData = [
     name: 'Garides Saganaki',
     price: '11.20 €',
     description: 'Krevety v paradajkovej omáčke so syrom feta, 200 g.',
-    Image:"/src/assets/menu/Garides saganaki.avif"
+    Image:"/menu/Garides saganaki.avif"
   },
   {
     id: 55,
@@ -450,7 +450,7 @@ const menuData = [
     name: 'Ryba podľa dnešného úlovku od nášho šéfkuchára',
     price: '18.90 €',
     description: 'Ryba podľa dnešného úlovku, miešaný šalát, 300 g.',
-    Image:"/src/assets/menu/ryba podla ulovu.jpg"
+    Image:"/menu/ryba podla ulovu.jpg"
   },
   {
     id: 56,
@@ -458,7 +458,7 @@ const menuData = [
     name: 'Grilovaná chobotnica',
     price: '19.60 €',
     description: 'Grilovaná chobotnica, 200 g.',
-    Image:"/src/assets/menu/chobotnica.avif"
+    Image:"/menu/chobotnica.avif"
   },
   {
     id: 57,
@@ -466,7 +466,7 @@ const menuData = [
     name: 'Rybací mix pre 2 osoby',
     price: '59.90 €',
     description: 'Mix rýb Gavros, Atherina, chobotnica, vyprážané a grilované kalamáre, krevety a souvlaki z morských plodov, podávaný s gréckym šalátom.',
-    Image:"/src/assets/menu/Rybací mix.avif"
+    Image:"/menu/Rybací mix.avif"
   },
 
   // DEZERTY
@@ -476,7 +476,7 @@ const menuData = [
     name: 'Galaktoburiko',
     price: '4.80 €',
     description: 'Tradičný grécky dezert z lístkového cesta plnený krémom.',
-    Image:"/src/assets/menu/GALAKTOBURIKO.jpg"
+    Image:"/menu/GALAKTOBURIKO.jpg"
   },
   {
     id: 59,
@@ -484,7 +484,7 @@ const menuData = [
     name: 'Baklava',
     price: '4.80 €',
     description: 'Tradičný grécky dezert z lístkového cesta, orechov a sladkého sirupu.',
-    Image:"/src/assets/menu/BAKLAVA.jpg"
+    Image:"/menu/BAKLAVA.jpg"
   },
   {
     id: 60,
@@ -492,7 +492,7 @@ const menuData = [
     name: 'Kantaifi',
     price: '4.80 €',
     description: 'Tradičný grécky dezert z jemného cesta s orechmi a sladkým sirupom.',
-    Image:"/src/assets/menu/KANTAIFI.jpg"
+    Image:"/menu/KANTAIFI.jpg"
   },
   {
     id: 61,
@@ -500,7 +500,7 @@ const menuData = [
     name: 'Dezert Viagra',
     price: '4.80 €',
     description: 'Špeciálny grécky dezert.',
-    Image:"/src/assets/menu/viagra.png"
+    Image:"/menu/viagra.png"
   },
   {
     id: 62,
@@ -508,7 +508,7 @@ const menuData = [
     name: 'Dezert Dňa',
     price: '4.80 €',
     description: 'Dezert podľa aktuálnej ponuky.',
-    Image:"/src/assets/menu/dod.png"
+    Image:"/menu/dod.png"
   },
 
   // NÁPOJE
@@ -518,7 +518,7 @@ const menuData = [
     name: 'Pepsi / Mirinda / Sprite 0,33 l',
     price: '2.70 €',
     description: 'Nealkoholický sýtený nápoj, 0,33 l.',
-    Image:"/src/assets/menu/pepsi.avif"
+    Image:"/menu/pepsi.avif"
   },
   {
     id: 64,
@@ -526,7 +526,7 @@ const menuData = [
     name: 'Minerálna voda 0,5 l',
     price: '2.70 €',
     description: 'Minerálna voda, perlivá alebo neperlivá, 0,5 l.',
-    Image:"/src/assets/menu/voda.jpg"
+    Image:"/menu/voda.jpg"
   },
   {
     id: 65,
@@ -534,7 +534,7 @@ const menuData = [
     name: 'Retsina 0,5 l',
     price: '4.80 €',
     description: 'Tradičné grécke víno Retsina, 0,5 l.',
-    Image:"/src/assets/menu/retsina.jpg"
+    Image:"/menu/retsina.jpg"
   },
   {
     id: 66,
@@ -542,7 +542,7 @@ const menuData = [
     name: 'Grécke biele / červené víno 0,18 l',
     price: '4.40 €',
     description: 'Grécke biele alebo červené víno, 0,18 l.',
-    Image:"/src/assets/menu/vino.png"
+    Image:"/menu/vino.png"
   },
   {
     id: 67,
@@ -550,7 +550,7 @@ const menuData = [
     name: 'Grécke pivo Mythos 0,35 l',
     price: '3.20 €',
     description: 'Tradičné grécke pivo Mythos, 0,35 l.',
-    Image:"/src/assets/menu/pivo.jpg"
+    Image:"/menu/pivo.jpg"
   },
   {
     id: 68,
@@ -558,7 +558,7 @@ const menuData = [
     name: 'Grécke malinovky Loux 0,25 l',
     price: '2.90 €',
     description: 'Tradičné grécke nealkoholické nápoje Loux, 0,25 l.',
-    Image:"/src/assets/menu/loux.avif"
+    Image:"/menu/loux.avif"
   }
 ];
 const buttons = document.querySelectorAll('.tab-btn');
