@@ -305,18 +305,22 @@ p{
     content: '';
 
     position: absolute;
-
     top: 50%;
     left: 0;
 
     width: 150px;
     height: 150px;
 
-    background: red;
+    background-image: url('./assets/jebalovo.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    transform: translateY(-50%);
 
     z-index: 10;
-}
 
+    filter: brightness(0) invert(1);
+}
 
     /* =========================
        ОСТРЫЙ КОНЕЦ СПРАВА
