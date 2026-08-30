@@ -278,75 +278,72 @@ p{
        БЕЛАЯ ПАЛОЧКА
        ========================= */
 
+    .category-tabs::before {
+        content: '';
+
+        position: absolute;
+
+        top: 50%;
+        left: 45px;
+        right: 45px;
+
+        transform: translateY(-50%);
+
+        height: 8px;
+
+        background-color: #ffffff;
+
+        z-index: 0;
+    }
+
+
     /* =========================
-   БЕЛАЯ ЛИНИЯ ШАМПУРА
-   ========================= */
+       КРЮЧОК СЛЕВА
+       ========================= */
 
-.category-tabs::before {
-    content: '';
+    .category-tabs::after {
+        content: '';
 
-    position: absolute;
+        position: absolute;
 
-    top: 50%;
-    left: 0;
-    right: 0;
+        top: 50%;
+        left: 5px;
 
-    transform: translateY(-50%);
+        transform: translateY(-50%);
 
-    height: 8px;
+        width: 80px;
+        height: 80px;
 
-    background-color: #ffffff;
+        background: url('./assets/jebalovo.png') center / contain no-repeat;
 
-    z-index: 0;
-}
+        z-index: 0;
 
-
-/* =========================
-   КРЮЧОК СЛЕВА
-   ========================= */
-
-.category-tabs::after {
-    content: '';
-
-    position: absolute;
-
-    top: 50%;
-    left: 0;
-
-    transform: translateY(-50%);
-
-    width: 75px;
-    height: 75px;
-
-    background: url('./assets/jebalovo.png') center / contain no-repeat;
-
-    z-index: 0;
-
-    filter: brightness(0) invert(1);
-}
+        filter: brightness(0) invert(1);
+    }
 
 
-/* =========================
-   ОСТРЫЙ КОНЕЦ СПРАВА
-   ========================= */
+    /* =========================
+       ОСТРЫЙ КОНЕЦ СПРАВА
+       ========================= */
 
-.skewer-konchalo {
-    position: absolute;
+    .skewer-konchalo {
+        position: absolute;
 
-    top: 50%;
-    right: 0;
+        top: 50%;
+        right: 5px;
 
-    transform: translateY(-50%);
+        transform: translateY(-50%);
 
-    width: 60px;
-    height: 50px;
+        width: 45px;
+        height: 40px;
 
-    background: url('./assets/konchalo.png') center / contain no-repeat;
+        background: url('./assets/konchalo.png') center / contain no-repeat;
 
-    z-index: 0;
+        z-index: 0;
 
-    filter: brightness(0) invert(1);
-}
+        filter: brightness(0) invert(1);
+    }
+
 
     /* =========================
        КНОПКИ КАТЕГОРИЙ
