@@ -302,24 +302,20 @@ p{
        ========================= */
 
     .category-tabs::after {
-        content: '';
+    content: '';
 
-        position: absolute;
+    position: absolute;
 
-        top: 50%;
-        left: 5px;
+    top: 50%;
+    left: 0;
 
-        transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
 
-        width: 80px;
-        height: 80px;
+    background: red;
 
-        background: url('./assets/jebalovo.png') center / contain no-repeat;
-
-        z-index: 0;
-
-        filter: brightness(0) invert(1);
-    }
+    z-index: 10;
+}
 
 
     /* =========================
