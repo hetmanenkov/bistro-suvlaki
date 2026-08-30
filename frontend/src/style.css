@@ -183,20 +183,52 @@ p{
   color: #FFFFFF;
   font-size: 25px;
 }
-@media (max-width: 480px){
-  .menu-grid{
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-}
-.category-title{
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-.menu-card{
-  height: auto;
-  min-height: 380px;
-}
-.menu-image{
-  height: 220px;
+@media (max-width: 480px) {
+
+    /* Карточки: 2 в ряд */
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    /* Заголовок категории */
+    .category-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    /* Карточка */
+    .menu-card {
+        height: auto;
+        min-height: 0;
+        border-radius: 10px;
+    }
+
+    /* Фото */
+    .menu-image {
+        height: 130px;
+        object-fit: cover;
+    }
+
+    /* Название блюда */
+    .menu-card h3 {
+        font-size: 13px;
+        line-height: 1.2;
+        margin: 8px 8px 4px;
+    }
+
+    /* Описание */
+    .menu-card p {
+        font-size: 11px;
+        line-height: 1.3;
+        margin: 0 8px 8px;
+    }
+
+    /* Цена */
+    .menu-card .price {
+        font-size: 13px;
+        margin: 0 8px 8px;
+    }
+
 }
