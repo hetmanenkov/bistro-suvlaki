@@ -147,7 +147,7 @@ const menuData = [
     name: 'Grécky šalát so syrom Halloumi',
     price: '9.70 €',
     description: 'Grécky šalát s grilovaným syrom Halloumi.',
-    Image:"/menu/grecky salat chalumi.webp"
+    Image:"menu/chalumi salat.png"
   },
   {
     id: 19,
@@ -368,7 +368,7 @@ const menuData = [
   name: 'Bifteky jahňacie porcia',
   price: '13.80 €',
   description: 'Grilované jahňacie bifteki, 200 g.',
-  Image:"/menu/Bifteky jemisto.avif"
+  Image:"menu/Bifteky JAHŇACIE.avif"
 },
 {
   id: 46,
@@ -450,7 +450,7 @@ const menuData = [
     name: 'Ryba podľa dnešného úlovku od nášho šéfkuchára',
     price: '18.90 €',
     description: 'Ryba podľa dnešného úlovku, miešaný šalát, 300 g.',
-    Image:"/menu/ryba podla ulovu.jpg"
+    Image:"menu/den ulov.png"
   },
   {
     id: 56,
@@ -583,16 +583,23 @@ function rendermenu(items) {
           ${categoryItems
             .map(
               item => `
-            <div class="menu-card">
-              <div class="menu-image"> 
-                <img src="${item.Image}" alt="${item.name}">
-              </div>
-              <div class="card-content">
-                <h3>${item.name}</h3>
-                <p class="description">${item.description}</p>
-                <span class="price">${item.price}</span>
-              </div>
-            </div>
+           <div class="menu-card"
+data-image="${item.Image}"
+data-name="${item.name}"
+data-description="${item.description}"
+data-price="${item.price}">
+
+    <div class="menu-image">
+        <img src="${item.Image}" alt="${item.name}">
+    </div>
+
+    <div class="card-content">
+        <h3>${item.name}</h3>
+        <p class="description">${item.description}</p>
+        <span class="price">${item.price}</span>
+    </div>
+
+</div>
           `
             )
             .join('')}
@@ -613,15 +620,45 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     const categoryName = button.textContent.trim();
 
-    if (categoryName === 'Všetko') {
-      container.scrollIntoView({ behavior: 'smooth' });
-    } else {
+   
       const targetId = `category-${categoryName.replace(/ /g, '-')}`;
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+    
   });
+});
+const cards = document.querySelectorAll('.menu-card');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+
+    const modal = document.querySelector('.dish-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalName = document.getElementById('modal-name');
+    const modalDescription = document.getElementById('modal-description');
+    const modalPrice = document.getElementById('modal-price');
+    const modalClose = document.getElementById('modal-close');
+
+    const image = card.dataset.image;
+    const name = card.dataset.name;
+    const description = card.dataset.description;
+    const price = card.dataset.price;
+
+    modalImage.src = image;
+    modalImage.alt = name;
+    modalName.textContent = name;
+    modalDescription.textContent = description;
+    modalPrice.textContent = price;
+
+    modal.style.display = 'block';
+    modalClose.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+  });
+});
+modalClose.addEventListener('click', () => {
+  modal.style.display = 'none';
 });
