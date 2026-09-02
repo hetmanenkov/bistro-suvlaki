@@ -245,6 +245,103 @@ p{
     cursor: pointer;
     z-index: 1;
 }
+.about-button {
+    position: absolute;
+    top: 20px;
+    right: 270px;
+    z-index: 9999;
+
+    background-color: #ffffff;
+    color: #0047AB;
+    text-decoration: none;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+    .kontakt-button {
+    position: absolute;
+    top: 20px;
+    right: 170px;
+    z-index: 9999;
+
+    background-color: #ffffff;
+    color: #0047AB;
+    text-decoration: none;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+.place-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    background-color: #ffffff;
+    color: #0047AB;
+    text-decoration: none;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+.about-page {
+    max-width: 800px;
+    margin: 120px auto 60px;
+    padding: 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.about-page h1 {
+    color: #ffffff;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.about-page p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.contact-section,
+.place-section {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.contact-section h2,
+.place-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.contact-section p,
+.place-section p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 8px 0;
+    color: #ffffff;
+}
+
  @media (max-width: 480px) {
 
     /* =========================
@@ -456,6 +553,92 @@ p{
 
     .category-tabs .tab-btn:hover {
         transform: none;
+    }
+        /* Кнопки сверху на телефоне */
+
+    .about-button {
+    top: 15px;
+    right: 135px;
+    padding: 8px 12px;
+    font-size: 8px;
+}
+
+.kontakt-button {
+    top: 15px;
+    right: 80px;
+    padding: 8px 12px;
+    font-size: 8px;
+}
+
+.place-button {
+    top: 15px;
+    right: 5px;
+    padding: 8px 12px;
+    font-size: 7px;
+}
+
+    /* Kontakt и Kde nás nájdete */
+
+    .contact-section,
+    .place-section {
+        max-width: 90%;
+        margin: 40px auto;
+        padding: 15px;
+    }
+
+    .contact-section h2,
+    .place-section h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .contact-section p,
+    .place-section p {
+        font-size: 13px;
+        line-height: 1.4;
+        margin: 7px 0;
+    }
+
+
+    /* Страница O nás */
+
+    .about-page {
+        max-width: 92%;
+        margin: 80px auto 40px;
+        padding: 20px;
+    }
+
+    .about-page h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .about-page p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .chef-quote {
+        margin-top: 35px;
+        padding: 10px;
+    }
+
+    .quote-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .chef-greeting {
+        font-size: 14px;
+    }
+
+    .chef-name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .chef-title {
+        font-size: 13px;
     }
     
 }
