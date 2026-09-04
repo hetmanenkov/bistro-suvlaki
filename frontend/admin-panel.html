@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrácia | Bistro Suvlaki</title>
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+    <main class="admin-panel">
+
+        <h1>Bistro Suvlaki</h1>
+        <h2>Administrácia</h2>
+
+        <button id="logout-button">
+            Odhlásiť sa
+        </button>
+
+        <hr>
+
+        <h2>Menu</h2>
+
+<button id="add-dish-button">
+    + Pridať jedlo
+</button>
+
+<div id="add-dish-form" style="display: none;">
+
+    <h3>Nové jedlo</h3>
+
+    <input
+        type="text"
+        id="new-name"
+        placeholder="Názov"
+    >
+
+    <select id="new-category">
+    <option value="">Vyberte kategóriu</option>
+</select>
+
+<input
+    type="text"
+    id="new-category-custom"
+    placeholder="Názov novej kategórie"
+    style="display: none;"
+>
+
+    <input
+        type="number"
+        id="new-price"
+        step="0.01"
+        placeholder="Cena"
+    >
+
+    <textarea
+        id="new-description"
+        placeholder="Popis"
+    ></textarea>
+
+    <input
+        <label for="new-image">
+    Obrázok
+</label>
+
+<input
+    type="file"
+    id="new-image"
+    accept="image/*"
+>
+    >
+
+    <input
+        type="text"
+        id="new-allergens"
+        placeholder="Alergény"
+    >
+
+    <label>
+        <input type="checkbox" id="new-available" checked>
+        Dostupné
+    </label>
+
+    <button id="save-new-dish">
+        Uložiť jedlo
+    </button>
+
+    <button id="cancel-new-dish">
+        Zrušiť
+    </button>
+
+</div>
+
+<div id="admin-menu">
+    Načítavam menu...
+</div>
+    </main>
+
+    <script type="module" src="/src/admin-panel.js"></script>
+
+</body>
+</html>

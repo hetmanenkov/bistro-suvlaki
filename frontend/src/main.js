@@ -1,3 +1,4 @@
+import { supabase } from './supabase.js'
 const menuData = [
   // PREDJEDLÁ
   {
@@ -593,11 +594,12 @@ data-price="${item.price}">
         <img src="${item.Image}" alt="${item.name}">
     </div>
 
-    <div class="card-content">
-        <h3>${item.name}</h3>
-        <p class="description">${item.description}</p>
-        <span class="price">${item.price}</span>
-    </div>
+<div class="card-content">
+    <h3>${item.name}</h3>
+    <p class="description">${item.description}</p>
+    ${item.allergens ? `<p class="allergens">Alergény: ${item.allergens}</p>` : ''}
+    <span class="price">${item.price}</span>
+</div>
 
 </div>
           `
@@ -612,53 +614,71 @@ data-price="${item.price}">
   container.innerHTML = html;
 }
 
-// Первичная отрисовка всего меню
-rendermenu(menuData);
 
-// Настройка плавного скролла по кнопкам
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const categoryName = button.textContent.trim();
 
-   
+// Загружаем меню из Supabase
+async function loadMenu() {
+  const { data, error } = await supabase
+    .from('menu')
+    .select('*')
+    .eq('available', true)
+    .order('id');
+    console.log('ДАННЫЕ ИЗ SUPABASE:', data);
+console.log('ОШИБКА SUPABASE:', error);
+
+  if (error) {
+    console.error('Ошибка загрузки меню:', error);
+    container.innerHTML = '<p>Не удалось загрузить меню.</p>';
+    return;
+  }
+
+  const items = data.map(item => ({
+    ...item,
+    Image: item.image,
+    price: `${Number(item.price).toFixed(2)} €`
+  }));
+
+  rendermenu(items);
+
+  // Кнопки категорий
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const categoryName = button.textContent.trim();
       const targetId = `category-${categoryName.replace(/ /g, '-')}`;
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
-    
+    });
   });
-});
-const cards = document.querySelectorAll('.menu-card');
 
-cards.forEach(card => {
-  card.addEventListener('click', () => {
+  // Карточки блюд
+  const cards = document.querySelectorAll('.menu-card');
 
-    const modal = document.querySelector('.dish-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalName = document.getElementById('modal-name');
-    const modalDescription = document.getElementById('modal-description');
-    const modalPrice = document.getElementById('modal-price');
-    const modalClose = document.getElementById('modal-close');
+  const modal = document.querySelector('.dish-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalName = document.getElementById('modal-name');
+  const modalDescription = document.getElementById('modal-description');
+  const modalPrice = document.getElementById('modal-price');
+  const modalClose = document.getElementById('modal-close');
 
-    const image = card.dataset.image;
-    const name = card.dataset.name;
-    const description = card.dataset.description;
-    const price = card.dataset.price;
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      modalImage.src = card.dataset.image;
+      modalImage.alt = card.dataset.name;
+      modalName.textContent = card.dataset.name;
+      modalDescription.textContent = card.dataset.description;
+      modalPrice.textContent = card.dataset.price;
 
-    modalImage.src = image;
-    modalImage.alt = name;
-    modalName.textContent = name;
-    modalDescription.textContent = description;
-    modalPrice.textContent = price;
-
-    modal.style.display = 'block';
-    modalClose.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+      modal.style.display = 'block';
+    });
   });
-});
-modalClose.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+}
+
+// Запускаем загрузку меню
+loadMenu();

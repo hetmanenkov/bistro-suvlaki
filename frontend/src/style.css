@@ -133,7 +133,7 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    height: 415px; /* Фиксированная высота всей карточки */
+    height: 440px; /* Фиксированная высота всей карточки */
 }
 
 .menu-image {
@@ -152,6 +152,11 @@ body {
     object-position: center !important; /* Центрирует фото по горизонтали и вертикали */
     display: block;
 }
+.allergens {
+    font-size: 12px;
+    opacity: 0.6;
+    margin: 4px 0;
+}
 
 /* Контент внутри карточки */
 .card-content {
@@ -169,7 +174,7 @@ body {
 
 .menu-card .description {
     font-size: 12px;
-    color: #a0a0a0;
+    color: #FFFFFF;
     margin: 0 0 15px 0;
     flex-grow: 1; /* Толкает цену вниз */
 }
@@ -224,7 +229,7 @@ p{
 }
 
 #modal-description {
-    color: #a0a0a0;
+    color: #FFFFFF;
     font-size: 14px;
 }
 
@@ -248,10 +253,10 @@ p{
 .about-button {
     position: absolute;
     top: 20px;
-    right: 270px;
+    right: 210px;
     z-index: 9999;
 
-    background-color: #ffffff;
+    background-color: none;
     color: #0047AB;
     text-decoration: none;
 
@@ -261,15 +266,15 @@ p{
     font-size: 14px;
     font-weight: bold;
 
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    /*box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
 }
     .kontakt-button {
     position: absolute;
     top: 20px;
-    right: 170px;
+    right: 140px;
     z-index: 9999;
 
-    background-color: #ffffff;
+    background-color: none;
     color: #0047AB;
     text-decoration: none;
 
@@ -279,7 +284,7 @@ p{
     font-size: 14px;
     font-weight: bold;
 
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+   /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
 }
 .place-button {
     position: absolute;
@@ -287,7 +292,7 @@ p{
     right: 20px;
     z-index: 9999;
 
-    background-color: #ffffff;
+    background-color: none;
     color: #0047AB;
     text-decoration: none;
 
@@ -297,7 +302,7 @@ p{
     font-size: 14px;
     font-weight: bold;
 
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+   /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
 }
 .about-page {
     max-width: 800px;
@@ -558,14 +563,14 @@ p{
 
     .about-button {
     top: 15px;
-    right: 135px;
+    right: 105px;
     padding: 8px 12px;
     font-size: 8px;
 }
 
 .kontakt-button {
     top: 15px;
-    right: 80px;
+    right: 70px;
     padding: 8px 12px;
     font-size: 8px;
 }
@@ -574,7 +579,7 @@ p{
     top: 15px;
     right: 5px;
     padding: 8px 12px;
-    font-size: 7px;
+    font-size: 8px;
 }
 
     /* Kontakt и Kde nás nájdete */
@@ -640,5 +645,149 @@ p{
     .chef-title {
         font-size: 13px;
     }
+     .allergens {
+        font-size: 10px;
+        margin: 3px 0;
+        opacity: 0.55;
+    }
     
+}
+/* =========================
+   ADMIN PANEL
+   ========================= */
+
+.admin-panel {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+.admin-panel h1 {
+    margin-bottom: 5px;
+}
+
+.admin-panel > h2 {
+    margin-bottom: 25px;
+}
+
+#logout-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#admin-menu {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.admin-dish {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.admin-dish h3 {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+}
+
+.admin-dish p {
+    margin: 6px 0;
+    color: #121212;
+    font-size: 14px;
+}
+
+.edit-button,
+.save-button,
+.cancel-button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.edit-form {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.edit-form input,
+.edit-form textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.edit-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.edit-form label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.edit-form label input {
+    width: auto;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+
+    .admin-panel {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .admin-panel h1 {
+        font-size: 26px;
+    }
+
+    .admin-panel h2 {
+        font-size: 20px;
+    }
+
+    .admin-dish {
+        padding: 15px;
+    }
+
+    .admin-dish h3 {
+        font-size: 18px;
+    }
+
+    .admin-dish p {
+        font-size: 13px;
+    }
+
+    .edit-button,
+    .save-button,
+    .cancel-button {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+.admin-dish-image {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
 }
