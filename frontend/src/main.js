@@ -577,10 +577,22 @@ function rendermenu(items) {
       // Имена секций формируются правильно с обратными кавычками
       const sectionId = `category-${category.replace(/ /g, '-')}`;
 
-      return `
-      <section id="${sectionId}" class="menu-section">
-        <h2 class="category-title">${category}</h2>
-        <div class="menu-grid">
+     return `
+<section id="${sectionId}" class="menu-section">
+    <h2 class="category-title">${category}</h2>
+    ${category === 'Pita menu' ? `
+    <p class="category-info">
+        Všetky pity sú plnené tzatziki, paradajkou, cibuľkou a hranolkami. FIT VERZIA: hranolky môžete vymeniť za šalát.
+    </p>
+` : ''}
+
+${category === 'Grécko na tanieri' ? `
+    <p class="category-info">
+        Každé jedlo z tejto kategórie podávame s hranolkami, tzatziki, paradajkou, cibuľkou a pita chlebom. FIT VERZIA: hranolky a pita chlieb vám radi vymeníme za šalát.
+    </p>
+` : ''}
+
+    <div class="menu-grid">
           ${categoryItems
             .map(
               item => `

@@ -346,6 +346,22 @@ p{
     margin: 8px 0;
     color: #ffffff;
 }
+.category-info {
+    max-width: 850px;
+    margin: 12px auto 28px;
+    padding: 14px 20px;
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d8d8d8;
+
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 2px solid #e8752a;
+    border-right: 2px solid #e8752a;
+
+    border-radius: 8px;
+}
 
  @media (max-width: 480px) {
 
@@ -603,6 +619,15 @@ p{
         line-height: 1.4;
         margin: 7px 0;
     }
+    @media (max-width: 600px) {
+    .category-info {
+        margin: 10px 12px 22px;
+        padding: 11px 14px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
 
 
     /* Страница O nás */
