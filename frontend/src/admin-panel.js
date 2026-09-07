@@ -31,7 +31,7 @@ async function loadAnnouncement() {
 
     if (data.announcement) {
         announcementContainer.innerHTML = `
-            <strong>🔥 AKCIA🔥</strong>
+            <strong> AKCIA</strong>
 
             <img
                 src="${data.announcement}"
@@ -165,8 +165,15 @@ if (category === '__new__') {
     category = newCategoryCustom.value.trim();
 }
 
-let price = Number(newPrice.value);
-let description = newDescription.value.trim();
+const isDailyMenu = category === 'Denné Menu';
+
+let price = isDailyMenu || newPrice.value === ''
+    ? null
+    : Number(newPrice.value);
+
+let description = isDailyMenu
+    ? null
+    : newDescription.value.trim();
 
 const imageFile = newImage.files[0];
 
@@ -176,7 +183,7 @@ const available = document.getElementById('new-available').checked;
 
 // Denné Menu
 if (category === 'Denné Menu') {
-    name = null;
+    name = 'Denné Menu';
     price = 0;
     description = null;
     allergens = null;
@@ -190,10 +197,10 @@ if (category === 'Denné Menu') {
 
 // Ostatné jedlá
 else {
-    if (!name || !category || !price || !imageFile) {
-        alert('Vyplňte názov, kategóriu, cenu a obrázok.');
-        return;
-    }
+   if (!name || !category || !imageFile) {
+    alert('Vyplňte názov, kategóriu a obrázok.');
+    return;
+}
 }
 const fileName = `${Date.now()}-${imageFile.name}`;
 
@@ -225,7 +232,8 @@ const image = imageData.publicUrl;
         description: description || null,
         image,
         allergens: allergens || null,
-        available
+        available,
+        is_daily_menu: isDailyMenu
     });
 
 
@@ -259,22 +267,23 @@ newCategoryCustom.style.display = 'none';
 // Загружаем меню
 async function loadMenu() {
 
-    const { data, error } = await supabase
-        .from('menu')
-        .select('*')
-        .order('id');
+const { data, error } = await supabase
+    .from('menu')
+    .select('*')
+    .order('is_daily_menu', { ascending: false })
+    .order('id');
 
     if (error) {
         console.error('Chyba pri načítaní menu:', error);
         menuContainer.innerHTML = '<p>Nepodarilo sa načítať menu.</p>';
         return;
     }
-    const categories = [
-        'Denné Menu',
+ const categories = [
+    'Denné Menu',
     ...new Set(
         data
             .map(item => item.category)
-            .filter(category => category)
+            .filter(category => category && category !== 'Denné Menu')
     )
 ];
 

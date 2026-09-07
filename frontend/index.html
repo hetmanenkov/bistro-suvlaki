@@ -11,14 +11,61 @@
 <body>
   
 
-    <a href="/about.html" class="about-button">O nás</a>
-    <a href="#contact" class="kontakt-button">Kontakt</a>
-    <a href="#place" class="place-button">Kde nás najdete</a>
-    <a href="/catering.html" class="catering-button">Catering</a>
+   <button id="menu-toggle" class="menu-toggle" aria-label="Otvoriť menu">
+    ☰
+</button>
+
+<div id="side-menu" class="side-menu">
+
+    <button id="menu-close" class="menu-close" aria-label="Zavrieť menu">
+        ×
+    </button>
+
+    <nav class="side-menu-links">
+        <a href="/about.html">O nás</a>
+        <a href="/catering.html">Catering</a>
+
+        <a href="#place">Kde nás nájdete</a>
+       <a href="#contact">Kontakt</a>
+<a
+    href="https://wolt.com/sk/svk/bratislava/restaurant/bistro-suvlaki"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+   Objednajte si nás na Wolt
+</a>
+        <a href="/admin.html">Administrácia</a>
+        <div class="social-links">
+
+    <a
+    href="https://www.instagram.com/bistrosuvlaki?stkn=MWI0dXV1enE2N2dqMw=="
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Instagram
+</a>
+
+   <a
+    href="https://www.facebook.com/share/1DJNLvH5uX/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Facebook
+</a>
+
+</div>
+<footer class="site-footer">
+    <button class="creator-button">
+        Web vytvorila
+    </button>
+</footer>
+    </nav>
+
+</div>
 
     <div id="app">
-        <h1>Bistro Suvlaki</h1>
-      <p>Grécke chujoviny priamo v Bratislave dpc</p>
+        <h1 class="bistro-title">BISTRO SUVLAKI</h1>
+      <p class="grill-time">GRILL TIME</p>
     </div>
     <div class="category-tabs">
      <button class = "tab-btn">Predjedlá</button>
@@ -49,9 +96,29 @@
 
     <h2>Kde nás nájdete</h2>
 
-    <p>📍Krížna 8, Bratislava, Slovensko</p>
+    <p>📍 Krížna 8, Bratislava, Slovensko</p>
 
-    <p>🕐 Pondelok – Sobota: 11:00  –  22:00 </p>
+    <p>🕐 Pondelok – Sobota: 11:00 – 22:00</p>
+
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps?q=Bistro+Suvlaki,+Krížna+8,+Bratislava&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <a
+        class="maps-button"
+        href="https://www.google.com/maps/search/?api=1&query=Bistro+Suvlaki,+Krížna+8,+Bratislava"
+        target="_blank"
+        rel="noopener noreferrer">
+        📍 Otvoriť v Google Maps
+    </a>
 
 </section>
   
@@ -65,8 +132,7 @@
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>
-    <a href="/admin.html" class="owner-login">
-       🔒 Administrácia
-</a>
+    
+<button id="back-to-top" aria-label="Späť hore">↑</button>
   </body>
 </html>
