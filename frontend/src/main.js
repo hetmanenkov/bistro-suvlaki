@@ -56,7 +56,7 @@ const menuData = [
     name: 'Hranolky z čerstvých zemiakov',
     price: '3.80 €',
     description: 'Domáce grécke hranolky z čerstvých zemiakov.',
-    Image:"/menu/Hranolky.avif"
+    Image:"/menu/Hran.png"
   },
   {
     id: 8,
@@ -297,7 +297,7 @@ const menuData = [
     name: 'Gyros tanier Chirinos',
     price: '9.80 €',
     description: 'Nárezané bravčové gyros mäso, 300g.',
-    Image:"/menu/Gyros tanier Chirinos.avif"
+    Image:"/menu/gtb.png"
   },
   {
     id: 37,
@@ -305,7 +305,7 @@ const menuData = [
     name: 'Gyros tanier Kotopulo',
     price: '9.80 €',
     description: 'Nárezané kuracie gyros mäso, 300 g.',
-    Image:"/menu/Gyros tanier kotopulo.avif"
+    Image:"/menu/gtk.png"
   },
   {
     id: 38,
@@ -370,7 +370,7 @@ const menuData = [
   name: 'Bifteky jahňacie porcia',
   price: '13.80 €',
   description: 'Grilované jahňacie bifteki, 200 g.',
-  Image:"menu/Bifteky JAHŇACIE.avif"
+  Image:"menu/bifteky-jahnacie.pngf"
 },
 {
   id: 46,
@@ -766,7 +766,7 @@ async function loadAnnouncement() {
     const announcementImage = data.announcement || '/akcia-default.png';
 
 announcementContainer.innerHTML = `
-    <h2 class="category-title">🔥AKCIA🔥</h2>
+    <h2 class="category-title">AKCIA</h2>
 
     <img
         src="${announcementImage}"
