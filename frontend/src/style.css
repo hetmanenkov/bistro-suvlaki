@@ -1,7 +1,9 @@
-#app{
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
+#app {
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
 }
 /*Большая коробка*/
 .category-tabs{ 
@@ -40,7 +42,7 @@
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
-  left: 78px;
+  left: 90px;
   width: 90px;
   height: 80px;
   background: url('./assets/jebalovo.png');
@@ -51,7 +53,7 @@
   position: absolute;
   top: 29%;
   transform: translateY(-50%);
-  right: 95px;
+  right: 100px;
    width: 65px;
   height: 46px;
   background: url(./assets/konchalo.png);
@@ -86,29 +88,47 @@
   color: #fff;
   transform: translateY(-3px);
 }
+
+
 body {
-    background-color: #121212;
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.48),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url('/finlandia.png');
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     color: #ffffff;
     font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
-/* Сетка карточек */
+
+
 /* Сетка карточек */
 .menu-container {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
 }
-.menu-grid{
-  display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-   gap: 20px;
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+
 }
 .menu-section {
     width: 100%;
@@ -118,16 +138,16 @@ body {
 .category-title {
     font-size: 28px;
     font-weight: 700;
-    color: #ffffff;
+    color: #FFFFFF;
     margin-bottom: 20px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #d96b43;
+    border-bottom: 2px solid #1976D2;
     text-align: center;
 }
 
 /* Карточка фиксированного размера */
 .menu-card {
-    background-color: #1e1e1e;
+    background-color: #FFFFFF;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -156,6 +176,7 @@ body {
     font-size: 12px;
     opacity: 0.6;
     margin: 4px 0;
+    color: #1976D2;
 }
 
 /* Контент внутри карточки */
@@ -168,13 +189,14 @@ body {
 
 .menu-card h3 {
     margin: 0 0 8px 0;
-    font-size: 15px;
+    font-size: 17px;
     text-transform: uppercase;
+    color: #1976D2
 }
 
 .menu-card .description {
     font-size: 12px;
-    color: #FFFFFF;
+    color: #1976D2;
     margin: 0 0 15px 0;
     flex-grow: 1; /* Толкает цену вниз */
 }
@@ -182,7 +204,7 @@ body {
 .menu-card .price {
     font-size: 14px;
     font-weight: bold;
-    color: #d96b43;
+    color: #1976D2;
 }       
 
 h1{
@@ -206,7 +228,7 @@ p{
 
 .dish-modal-content {
     position: relative;
-    width: 500px;
+    width: 1000px;
     max-width: 90%;
     margin: 80px auto;
     background: #121212;
@@ -219,7 +241,7 @@ p{
 #modal-image {
     width: 100%;
     max-height: 400px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
 }
 
@@ -257,7 +279,7 @@ p{
     z-index: 9999;
 
     background-color: none;
-    color: #0047AB;
+    color: #FFFFFF;
     text-decoration: none;
 
     padding: 10px 20px;
@@ -275,7 +297,7 @@ p{
     z-index: 9999;
 
     background-color: none;
-    color: #0047AB;
+    color: #FFFFFF;
     text-decoration: none;
 
     padding: 10px 20px;
@@ -293,7 +315,7 @@ p{
     z-index: 9999;
 
     background-color: none;
-    color: #0047AB;
+    color: #FFFFFF;
     text-decoration: none;
 
     padding: 10px 20px;
@@ -303,6 +325,22 @@ p{
     font-weight: bold;
 
    /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
+}
+.catering-button {
+    position: absolute;
+    top: 20px;
+    right: 260px;
+    z-index: 9999;
+
+    background-color: none;
+    color: #FFFFFF;
+    text-decoration: none;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: bold;
 }
 .about-page {
     max-width: 800px;
@@ -362,39 +400,265 @@ p{
 
     border-radius: 8px;
 }
+.daily-menu-card {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    justify-self: center;
+}
 
- @media (max-width: 480px) {
+
+.daily-menu-card img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+}
+
+.menu-section:has(.daily-menu-card) .menu-grid {
+    display: flex;
+    justify-content: center;
+}
+.daily-and-announcement {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    margin: 30px auto 60px;
+}
+
+.daily-and-announcement .announcement,
+.daily-and-announcement .menu-section {
+    width: 400px;
+    margin: 0;
+}
+
+.daily-and-announcement .announcement {
+    width: 400px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.daily-and-announcement .announcement strong {
+    display: block;
+    height: 24px;
+    margin-bottom: 12px;
+}
+
+.daily-and-announcement .announcement img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    filter: brightness(0.75);
+}
+
+.daily-and-announcement .category-title {
+    margin-top: 0;
+}
+.daily-and-announcement .announcement .category-title {
+    width: 400px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+/* =========================
+   CATERING PAGE
+========================= */
+
+.catering-page {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 40px;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 16px;
+}
+
+.catering-page h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.catering-page h2 {
+    margin-top: 45px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #d96b43;
+}
+
+.catering-page p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.catering-intro {
+    font-size: 19px !important;
+}
+
+.catering-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.catering-services > div {
+    padding: 25px 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+}
+
+.catering-services h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.catering-services p {
+    font-size: 14px;
+}
+
+
+
+
+
+@media (max-width: 800px) {
+    /* =========================
+       МОБИЛЬНЫЙ ФОН
+       ========================= */
+
+  body {
+        background: none;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.48),
+                rgba(0, 0, 0, 0.55)
+            ),
+            url('/sweden.png');
+
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+
+    /* =========================
+       CATERING
+       ========================= */
+
+    .catering-button {
+        top: 14px;
+        right: 133px;
+        padding: 8px 12px;
+        font-size: 8px;
+    }
+
+    .catering-page {
+        margin: 70px 10px 40px;
+        padding: 25px 18px;
+    }
+
+    .catering-page h1 {
+        font-size: 32px;
+    }
+
+    .catering-intro {
+        font-size: 17px !important;
+    }
+
+    .catering-services {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .catering-services > div {
+        padding: 20px 15px;
+    }
+
+    /* =========================
+       DAILY MENU + AKCIA
+       ========================= */
+
+    .daily-and-announcement {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .daily-and-announcement .announcement,
+    .daily-and-announcement .menu-section {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .daily-and-announcement .announcement img,
+    .daily-and-announcement .daily-menu-card img {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .daily-and-announcement .announcement img {
+        width: 75%;
+        margin: 0 auto;
+    }
 
     /* =========================
        КАРТОЧКИ МЕНЮ
        ========================= */
 
-    .menu-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        padding: 0 10px;
-    }
+   .menu-grid { 
+    grid-template-columns: repeat(2, 120px); 
+    justify-content: center;
+    gap: 8px; 
+    padding: 0 10px; 
+}
 
-    .category-title {
-        font-size: 20px;
-        margin-bottom: 12px;
-    }
+.category-title {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .menu-card {
-        height: auto;
-        min-height: 0;
-        border-radius: 10px;
-    }
-
-    .menu-image {
-        height: 130px;
-        object-fit: cover;
-    }
+.menu-card { 
+    width: 120px;
+    height: auto; 
+    min-height: 0; 
+    border-radius: 8px; 
+}
+.menu-card .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 0;
+}
+.menu-image { 
+    width: 120px;
+    height: 82px; 
+    object-fit: cover; 
+}
 
     .menu-card h3 {
         font-size: 13px;
         line-height: 1.2;
         margin: 8px 8px 4px;
+        color: #1976D2;
     }
 
     .menu-card p {
@@ -407,18 +671,19 @@ p{
         font-size: 13px;
         margin: 0 8px 8px;
     }
-
+    .card-content {
+    padding: 5px 8px;
+    flex-grow: 0;
+}
 
     /* =========================
-       СУВЛАКА С КАТЕГОРИЯМИ
+       КАТЕГОРИИ
        ========================= */
 
     .category-tabs {
         position: relative;
-
         width: 100%;
         max-width: 100%;
-
         box-sizing: border-box;
 
         display: flex;
@@ -426,115 +691,85 @@ p{
         align-items: center;
 
         gap: 10px;
-
         margin: 35px auto;
-
         padding: 20px 60px;
 
         flex-wrap: nowrap;
-
         overflow-x: auto;
         overflow-y: hidden;
 
         scroll-behavior: smooth;
-
         scrollbar-width: none;
         z-index: 1;
-        
     }
-    
-
-
-    /* Убираем полосу прокрутки */
 
     .category-tabs::-webkit-scrollbar {
         display: none;
     }
 
-
-    /* =========================
-       БЕЛАЯ ПАЛОЧКА
-       ========================= */
+    /* Белая палочка */
 
     .category-tabs::before {
-        content: '';
-
+        content: "";
         position: absolute;
-
         top: 50%;
         left: 50px;
-        right: -600px;
+        right: -550px;
 
         transform: translateY(-50%);
 
         height: 8px;
-
         background-color: #ffffff;
 
         z-index: 0;
         pointer-events: none;
-        
     }
 
-
-    /* =========================
-       КРЮЧОК СЛЕВА
-       ========================= */
+    /* Крючок слева */
 
     .category-tabs::after {
-    content: '';
+        content: "";
+        position: absolute;
+        top: 52%;
+        left: 0;
 
-    position: absolute;
-    top: 52%;
-    left: 0px;
+        width: 470px;
+        height: 100px;
 
-    width: 470px;
-    height: 100px;
+        background-image: url("./assets/jebalovo.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
 
-    background-image: url('./assets/jebalovo.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+        transform: translateY(-50%);
 
-    transform: translateY(-50%);
+        z-index: 10;
+        filter: brightness(0) invert(1);
+    }
 
-    z-index: 10;
-
-    filter: brightness(0) invert(1);
-}
-
-    /* =========================
-       ОСТРЫЙ КОНЕЦ СПРАВА
-       ========================= */
+    /* Острый конец справа */
 
     .skewer-konchalo {
-    position: absolute;
+        position: absolute;
+        top: 38.5px;
+        right: -63px;
 
-    top: 38.5px;
-    right: -670px;
+        transform: translateY(-50%);
 
-    transform: translateY(-50%);
+        width: 60px;
+        height: 56px;
 
-    width: 60px;
-    height: 56px;
+        background: url("./assets/konchalo.png") center / contain no-repeat;
 
-    background: url('./assets/konchalo.png') center / contain no-repeat;
+        z-index: 10;
+        filter: brightness(0) invert(1);
+        pointer-events: none !important;
+    }
 
-    z-index: 10;
-
-    filter: brightness(0) invert(1);
-    pointer-events: none !important;
-
-}
-
-
-    /* =========================
-       КНОПКИ КАТЕГОРИЙ
-       ========================= */
+    /* Кнопки категорий */
 
     .category-tabs .tab-btn {
         position: relative;
-
-        z-index: 10;
+        z-index: 9999 !important;
 
         flex-shrink: 0;
 
@@ -542,63 +777,56 @@ p{
         color: #0047AB;
 
         border: none;
-
         padding: 11px 20px;
-
         border-radius: 20px;
 
         font-size: 14px;
         font-weight: bold;
-
         white-space: nowrap;
 
         cursor: pointer;
 
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-
         transition: all 0.2s ease;
-         position: relative;
-    z-index: 9999 !important;
     }
-
-
-    /* Активная категория */
 
     .category-tabs .tab-btn.active {
         background-color: #1A3B6E;
         color: #ffffff;
     }
 
-
-    /* На телефоне hover нам не нужен */
-
     .category-tabs .tab-btn:hover {
         transform: none;
     }
-        /* Кнопки сверху на телефоне */
+
+    /* =========================
+       ВЕРХНИЕ КНОПКИ
+       ========================= */
 
     .about-button {
-    top: 15px;
-    right: 105px;
-    padding: 8px 12px;
-    font-size: 8px;
-}
+        top: 15px;
+        right: 105px;
+        padding: 8px 12px;
+        font-size: 8px;
+    }
 
-.kontakt-button {
-    top: 15px;
-    right: 70px;
-    padding: 8px 12px;
-    font-size: 8px;
-}
+    .kontakt-button {
+        top: 15px;
+        right: 70px;
+        padding: 8px 12px;
+        font-size: 8px;
+    }
 
-.place-button {
-    top: 15px;
-    right: 5px;
-    padding: 8px 12px;
-    font-size: 8px;
-}
+    .place-button {
+        top: 15px;
+        right: 5px;
+        padding: 8px 12px;
+        font-size: 8px;
+    }
 
-    /* Kontakt и Kde nás nájdete */
+    /* =========================
+       KONTAKT + KDE NÁS NÁJDETE
+       ========================= */
 
     .contact-section,
     .place-section {
@@ -619,18 +847,21 @@ p{
         line-height: 1.4;
         margin: 7px 0;
     }
-    @media (max-width: 600px) {
+
+    /* =========================
+       INFO POD КАТЕГОРИЕЙ
+       ========================= */
+
     .category-info {
         margin: 10px 12px 22px;
         padding: 11px 14px;
-
         font-size: 12px;
         line-height: 1.5;
     }
-}
 
-
-    /* Страница O nás */
+    /* =========================
+       O NÁS
+       ========================= */
 
     .about-page {
         max-width: 92%;
@@ -670,13 +901,16 @@ p{
     .chef-title {
         font-size: 13px;
     }
-     .allergens {
+
+    .allergens {
         font-size: 10px;
         margin: 3px 0;
         opacity: 0.55;
+        
     }
-    
 }
+
+
 /* =========================
    ADMIN PANEL
    ========================= */
@@ -774,8 +1008,63 @@ p{
     width: auto;
     margin: 0;
 }
+.daily-menu-modal-image {
+    max-height: 80vh !important;
+    width: auto !important;
+    max-width: 100%;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
+}
+
+.announcement {
+    width: 320px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.announcement strong {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.announcement img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+.owner-login {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 6px 10px;
+
+    font-size: 11px;
+    color: #888;
+    text-decoration: none;
+
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.owner-login:hover {
+    opacity: 1;
+}
 
 @media (max-width: 600px) {
+    .daily-menu-modal-image {
+        max-height: 85vh !important;
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto ;
+    }
+
+    .dish-modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: 30px auto;
+        padding: 10px;
+    }
 
     .admin-panel {
         margin: 20px auto;
@@ -815,4 +1104,9 @@ p{
     object-fit: cover;
     border-radius: 10px;
     margin: 10px 0;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
 }

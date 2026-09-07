@@ -9,7 +9,108 @@ const saveNewDishButton = document.getElementById('save-new-dish');
 const cancelNewDishButton = document.getElementById('cancel-new-dish');
 const newCategorySelect = document.getElementById('new-category');
 const newCategoryCustom = document.getElementById('new-category-custom');
-newCategorySelect.addEventListener('change', () => {
+const newName = document.getElementById('new-name');
+const newPrice = document.getElementById('new-price');
+const newDescription = document.getElementById('new-description');
+const newImage = document.getElementById('new-image');
+const newAllergens = document.getElementById('new-allergens');
+const saveAnnouncementButton = document.getElementById('save-announcement');
+const clearAnnouncementButton = document.getElementById('clear-announcement');
+const announcementImage = document.getElementById('announcement-image');
+async function loadAnnouncement() {
+    const { data, error } = await supabase
+        .from('site_settings')
+        .select('announcement')
+        .eq('id', 1)
+        .single();
+
+    if (error) {
+        console.error('Chyba pri načítaní akcie:', error);
+        return;
+    }
+
+    if (data.announcement) {
+        announcementContainer.innerHTML = `
+            <strong>🔥 AKCIA🔥</strong>
+
+            <img
+                src="${data.announcement}"
+                alt="Akcia"
+            >
+        `;
+
+        announcementContainer.style.display = 'block';
+    } else {
+        announcementContainer.style.display = 'none';
+    }
+}
+
+saveAnnouncementButton.addEventListener('click', async () => {
+
+    const imageFile = announcementImage.files[0];
+
+    if (!imageFile) {
+        alert('Vyberte obrázok akcie.');
+        return;
+    }
+
+    const fileName = `akcia-${Date.now()}-${imageFile.name}`;
+
+    const { error: uploadError } = await supabase
+        .storage
+        .from('menu-images')
+        .upload(fileName, imageFile);
+
+    if (uploadError) {
+        console.error('Chyba pri nahrávaní obrázka akcie:', uploadError);
+        alert('Nepodarilo sa nahrať obrázok.');
+        return;
+    }
+
+    const { data: publicUrlData } = supabase
+        .storage
+        .from('menu-images')
+        .getPublicUrl(fileName);
+
+    const imageUrl = publicUrlData.publicUrl;
+
+    const { error } = await supabase
+        .from('site_settings')
+        .update({
+            announcement: imageUrl
+        })
+        .eq('id', 1);
+
+    if (error) {
+        console.error('Chyba pri ukladaní akcie:', error);
+        alert('Nepodarilo sa uložiť akciu.');
+        return;
+    }
+
+    alert('Akcia bola uložená.');
+});
+
+clearAnnouncementButton.addEventListener('click', async () => {
+
+    const { error } = await supabase
+        .from('site_settings')
+        .update({
+            announcement: null
+        })
+        .eq('id', 1);
+
+    if (error) {
+        console.error('Chyba pri odstraňovaní akcie:', error);
+        alert('Nepodarilo sa vymazať akciu.');
+        return;
+    }
+
+    announcementImage.value = '';
+
+    alert('Akcia bola vymazaná.');
+});
+   newCategorySelect.addEventListener('change', () => {
+
     if (newCategorySelect.value === '__new__') {
         newCategoryCustom.style.display = 'block';
         newCategoryCustom.focus();
@@ -17,8 +118,14 @@ newCategorySelect.addEventListener('change', () => {
         newCategoryCustom.style.display = 'none';
         newCategoryCustom.value = '';
     }
-});
 
+    const isDailyMenu = newCategorySelect.value === 'Denné Menu';
+
+    newName.style.display = isDailyMenu ? 'none' : 'block';
+    newPrice.style.display = isDailyMenu ? 'none' : 'block';
+    newDescription.style.display = isDailyMenu ? 'none' : 'block';
+    newAllergens.style.display = isDailyMenu ? 'none' : 'block';
+});
 
 // Проверяем авторизацию
 async function checkUser() {
@@ -50,23 +157,43 @@ cancelNewDishButton.addEventListener('click', () => {
 // Добавление нового блюда
 saveNewDishButton.addEventListener('click', async () => {
 
-    const name = document.getElementById('new-name').value.trim();
+    let name = newName.value.trim();
+
 let category = newCategorySelect.value;
 
 if (category === '__new__') {
     category = newCategoryCustom.value.trim();
 }
-const price = Number(document.getElementById('new-price').value);
-const description = document.getElementById('new-description').value.trim();
 
-const imageFile = document.getElementById('new-image').files[0];
+let price = Number(newPrice.value);
+let description = newDescription.value.trim();
 
-const allergens = document.getElementById('new-allergens').value.trim();
+const imageFile = newImage.files[0];
+
+let allergens = newAllergens.value.trim();
 const available = document.getElementById('new-available').checked;
 
-  if (!name || !category || !price || !imageFile) {
-    alert('Vyplňte názov, kategóriu, cenu a obrázok.');
-    return;
+
+// Denné Menu
+if (category === 'Denné Menu') {
+    name = null;
+    price = 0;
+    description = null;
+    allergens = null;
+
+    if (!imageFile) {
+        alert('Vyberte obrázok denného menu.');
+        return;
+    }
+}
+
+
+// Ostatné jedlá
+else {
+    if (!name || !category || !price || !imageFile) {
+        alert('Vyplňte názov, kategóriu, cenu a obrázok.');
+        return;
+    }
 }
 const fileName = `${Date.now()}-${imageFile.name}`;
 
@@ -143,6 +270,7 @@ async function loadMenu() {
         return;
     }
     const categories = [
+        'Denné Menu',
     ...new Set(
         data
             .map(item => item.category)
@@ -401,4 +529,5 @@ const user = await checkUser();
 
 if (user) {
     loadMenu();
+     loadAnnouncement();
 }

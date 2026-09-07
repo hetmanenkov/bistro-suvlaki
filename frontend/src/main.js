@@ -1,3 +1,4 @@
+
 import { supabase } from './supabase.js'
 const menuData = [
   // PREDJEDLÁ
@@ -295,7 +296,7 @@ const menuData = [
     category: 'Grécko na tanieri',
     name: 'Gyros tanier Chirinos',
     price: '9.80 €',
-    description: 'Bravčový gyros podávaný s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
+    description: 'Nárezané bravčové gyros mäso, 300g.',
     Image:"/menu/Gyros tanier Chirinos.avif"
   },
   {
@@ -303,7 +304,7 @@ const menuData = [
     category: 'Grécko na tanieri',
     name: 'Gyros tanier Kotopulo',
     price: '9.80 €',
-    description: 'Kurací gyros podávaný s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
+    description: 'Nárezané kuracie gyros mäso, 300 g.',
     Image:"/menu/Gyros tanier kotopulo.avif"
   },
   {
@@ -311,7 +312,7 @@ const menuData = [
     category: 'Grécko na tanieri',
     name: 'Souvlaki kuracie porcia',
     price: '10.50 €',
-    description: 'Tri kuracie špízy podávané s hranolkami, tzatziki, paradajkami, cibuľou a pita chlebom.',
+    description: 'Tri kuracie špízy, 300 g.',
     Image:"/menu/Suvlaki kuracie porcia.avif"
   },
 
@@ -320,7 +321,7 @@ const menuData = [
   category: 'Grécko na tanieri',
   name: 'Souvlaki bravčové porcia',
   price: '10.50 €',
-  description: 'Tri bravčové špízy, 500 g.',
+  description: 'Tri bravčové špízy, 300 g.',
   Image:"/menu/Suvlaki bravčové porcia.avif"
 },
 {
@@ -328,7 +329,7 @@ const menuData = [
   category: 'Grécko na tanieri',
   name: 'Souvlaki jahňacie porcia',
   price: '13.80 €',
-  description: 'Tri jahňacie špízy, 500 g.',
+  description: 'Tri jahňacie špízy, 300 g.',
   Image:"/menu/Suvlaki bravčové porcia.avif"
 },
 {
@@ -336,7 +337,7 @@ const menuData = [
   category: 'Grécko na tanieri',
   name: 'Souvlaki mix porcia',
   price: '12.70 €',
-  description: 'Mix bravčového, kuracieho a jahňacieho souvlaki, 500 g.',
+  description: 'Mix bravčového, kuracieho a jahňacieho souvlaki, 300 g.',
   Image:"/menu/suvlaki mix.png"
 },
 {
@@ -344,7 +345,7 @@ const menuData = [
   category: 'Grécko na tanieri',
   name: 'Souvlaki so syrom Halloumi porcia',
   price: '11.40 €',
-  description: 'Tri špízy so syrom Halloumi, 500 g.',
+  description: 'Tri špízy so syrom Halloumi, 300 g.',
   Image:"/menu/SUVLAKI zo SYRA CHALUMI.avif"
 },
 {
@@ -564,11 +565,24 @@ const menuData = [
 ];
 const buttons = document.querySelectorAll('.tab-btn');
 const container = document.getElementById('menu-container');
-
+const announcementContainer = document.getElementById('announcement');
 function rendermenu(items) {
   // 1. Находим все уникальные категории
-  const categories = [...new Set(items.map(item => item.category))];
+  
+const categories = [
+    ...new Set(
+        items
+            .map(item => item.category)
+            .filter(category => category)
+    )
+];
 
+categories.sort((a, b) => {
+    if (a === 'Denné Menu') return -1;
+    if (b === 'Denné Menu') return 1;
+    return 0;
+});
+  
   // 2. Создаем отдельную секцию с заголовком для каждой категории
   const html = categories
     .map(category => {
@@ -592,32 +606,57 @@ ${category === 'Grécko na tanieri' ? `
     </p>
 ` : ''}
 
-    <div class="menu-grid">
-          ${categoryItems
-            .map(
-              item => `
-           <div class="menu-card"
-data-image="${item.Image}"
-data-name="${item.name}"
-data-description="${item.description}"
-data-price="${item.price}">
+   <div class="menu-grid">
 
-    <div class="menu-image">
-        <img src="${item.Image}" alt="${item.name}">
-    </div>
+    ${categoryItems
+      .map(item =>
+   item.is_daily_menu
+          ? `
+            <div class="daily-menu-card"
+                 data-image="${item.Image}"
+                 data-name="Denné Menu"
+                 data-description=""
+                 data-price="">
 
-<div class="card-content">
-    <h3>${item.name}</h3>
-    <p class="description">${item.description}</p>
-    ${item.allergens ? `<p class="allergens">Alergény: ${item.allergens}</p>` : ''}
-    <span class="price">${item.price}</span>
-</div>
+                <img
+                    src="${item.Image}"
+                    alt="Denné Menu"
+                >
 
-</div>
+            </div>
           `
-            )
-            .join('')}
-        </div>
+          : `
+            <div class="menu-card"
+                 data-image="${item.Image}"
+                 data-name="${item.name}"
+                 data-description="${item.description}"
+                 data-price="${item.price}">
+
+                <div class="menu-image">
+                    <img
+                        src="${item.Image}"
+                        alt="${item.name}"
+                    >
+                </div>
+
+                <div class="card-content">
+                    <h3>${item.name}</h3>
+                    <p class="description">${item.description}</p>
+
+                    ${item.allergens
+                        ? `<p class="allergens">Alergény: ${item.allergens}</p>`
+                        : ''
+                    }
+
+                    <span class="price">${item.price}</span>
+                </div>
+
+            </div>
+          `
+      )
+      .join('')}
+
+</div>
       </section>
     `;
     })
@@ -630,6 +669,7 @@ data-price="${item.price}">
 
 // Загружаем меню из Supabase
 async function loadMenu() {
+  console.log('LOAD MENU ЗАПУСТИЛСЯ');
   const { data, error } = await supabase
     .from('menu')
     .select('*')
@@ -651,6 +691,21 @@ console.log('ОШИБКА SUPABASE:', error);
   }));
 
   rendermenu(items);
+  const dailySection = document.getElementById('category-Denné-Menu');
+
+if (dailySection && announcementContainer) {
+    const dailyAndAnnouncement = document.createElement('div');
+
+    dailyAndAnnouncement.className = 'daily-and-announcement';
+
+    dailySection.parentNode.insertBefore(
+        dailyAndAnnouncement,
+        dailySection
+    );
+
+    dailyAndAnnouncement.appendChild(announcementContainer);
+    dailyAndAnnouncement.appendChild(dailySection);
+}
 
   // Кнопки категорий
   buttons.forEach(button => {
@@ -666,7 +721,7 @@ console.log('ОШИБКА SUPABASE:', error);
   });
 
   // Карточки блюд
-  const cards = document.querySelectorAll('.menu-card');
+  const cards = document.querySelectorAll('.menu-card, .daily-menu-card');
 
   const modal = document.querySelector('.dish-modal');
   const modalImage = document.getElementById('modal-image');
@@ -677,6 +732,10 @@ console.log('ОШИБКА SUPABASE:', error);
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
+      modalImage.classList.toggle(
+    'daily-menu-modal-image',
+    card.classList.contains('daily-menu-card')
+);
       modalImage.src = card.dataset.image;
       modalImage.alt = card.dataset.name;
       modalName.textContent = card.dataset.name;
@@ -692,5 +751,30 @@ console.log('ОШИБКА SUPABASE:', error);
   });
 }
 
-// Запускаем загрузку меню
+async function loadAnnouncement() {
+    const { data, error } = await supabase
+        .from('site_settings')
+        .select('announcement')
+        .eq('id', 1)
+        .single();
+
+    if (error) {
+        console.error('Chyba pri načítaní upozornenia:', error);
+        return;
+    }
+
+    const announcementImage = data.announcement || '/akcia-default.png';
+
+announcementContainer.innerHTML = `
+    <h2 class="category-title">🔥AKCIA🔥</h2>
+
+    <img
+        src="${announcementImage}"
+        alt="Akcia"
+    >
+`;
+
+announcementContainer.style.display = 'block';
+}
 loadMenu();
+loadAnnouncement();
