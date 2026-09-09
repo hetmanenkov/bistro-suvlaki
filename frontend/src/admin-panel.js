@@ -12,6 +12,10 @@ const newCategoryCustom = document.getElementById('new-category-custom');
 const newName = document.getElementById('new-name');
 const newPrice = document.getElementById('new-price');
 const newDescription = document.getElementById('new-description');
+const newNameEn = document.getElementById('new-name-en');
+const newDescriptionEn = document.getElementById('new-description-en');
+const newNameEl = document.getElementById('new-name-el');
+const newDescriptionEl = document.getElementById('new-description-el');
 const newImage = document.getElementById('new-image');
 const newAllergens = document.getElementById('new-allergens');
 const saveAnnouncementButton = document.getElementById('save-announcement');
@@ -233,7 +237,12 @@ const image = imageData.publicUrl;
         image,
         allergens: allergens || null,
         available,
-        is_daily_menu: isDailyMenu
+        is_daily_menu: isDailyMenu,
+        name_en: newNameEn.value.trim() || null,
+description_en: newDescriptionEn.value.trim() || null,
+
+name_el: newNameEl.value.trim() || null,
+description_el: newDescriptionEl.value.trim() || null,
     });
 
 
@@ -253,6 +262,10 @@ const image = imageData.publicUrl;
 newCategoryCustom.style.display = 'none';
     document.getElementById('new-price').value = '';
     document.getElementById('new-description').value = '';
+    newNameEn.value = '';
+newDescriptionEn.value = '';
+newNameEl.value = '';
+newDescriptionEl.value = '';
     document.getElementById('new-image').value = '';
     document.getElementById('new-allergens').value = '';
     document.getElementById('new-available').checked = true;
@@ -335,7 +348,12 @@ newCategorySelect.innerHTML = `
                 Odstrániť
             </button>
 
-            <div class="edit-form" id="edit-${item.id}" style="display: none;">
+            <div
+    class="edit-form"
+    id="edit-${item.id}"
+    data-current-image="${item.image || ''}"
+    style="display: none;"
+>
 
                 <input
                     type="text"
@@ -363,13 +381,35 @@ newCategorySelect.innerHTML = `
                     class="edit-description"
                     placeholder="Popis"
                 >${item.description || ''}</textarea>
-
                 <input
-                    type="text"
-                    class="edit-image"
-                    value="${item.image || ''}"
-                    placeholder="Cesta k obrázku"
-                >
+    type="text"
+    class="edit-name-en"
+    value="${item.name_en || ''}"
+    placeholder="Názov EN"
+>
+
+<textarea
+    class="edit-description-en"
+    placeholder="Popis EN"
+>${item.description_en || ''}</textarea>
+
+<input
+    type="text"
+    class="edit-name-el"
+    value="${item.name_el || ''}"
+    placeholder="Názov GR"
+>
+
+<textarea
+    class="edit-description-el"
+    placeholder="Popis GR"
+>${item.description_el || ''}</textarea>
+
+               <input
+    type="file"
+    class="edit-image"
+    accept="image/*"
+>
 
                 <input
                     type="text"
@@ -438,33 +478,79 @@ newCategorySelect.innerHTML = `
 
 
     // Кнопки Uložiť zmeny
-    document.querySelectorAll('.save-button').forEach(button => {
+  document.querySelectorAll('.save-button').forEach(button => {
 
-        button.addEventListener('click', async () => {
+    button.addEventListener('click', async () => {
 
-            const id = button.dataset.id;
-            const form = document.getElementById(`edit-${id}`);
+        const id = button.dataset.id;
+        const form = document.getElementById(`edit-${id}`);
 
-            const name = form.querySelector('.edit-name').value.trim();
-            const category = form.querySelector('.edit-category').value.trim();
-            const price = Number(form.querySelector('.edit-price').value);
-            const description = form.querySelector('.edit-description').value.trim();
-            const image = form.querySelector('.edit-image').value.trim();
-            const allergens = form.querySelector('.edit-allergens').value.trim();
+        const name = form.querySelector('.edit-name').value.trim();
+        const category = form.querySelector('.edit-category').value.trim();
+        const price = Number(form.querySelector('.edit-price').value);
+        const description = form.querySelector('.edit-description').value.trim();
+
+        const imageFile = form.querySelector('.edit-image').files[0];
+
+        let image = null;
+
+        if (imageFile) {
+
+            const fileName = `${Date.now()}-${imageFile.name}`;
+
+            const { error: uploadError } = await supabase
+                .storage
+                .from('menu-images')
+                .upload(fileName, imageFile);
+
+            if (uploadError) {
+                console.error('Chyba pri nahrávaní obrázka:', uploadError);
+                alert('Nepodarilo sa nahrať obrázok.');
+                return;
+            }
+
+            const { data: imageData } = supabase
+                .storage
+                .from('menu-images')
+                .getPublicUrl(fileName);
+
+            image = imageData.publicUrl;
+
+        } else {
+
+            image = form.dataset.currentImage || null;
+
+        }
+
+        const allergens = form.querySelector('.edit-allergens').value.trim();
+
+        // дальше name_en, description_en, name_el, description_el...
             const available = form.querySelector('.edit-available').checked;
+            const name_en = form.querySelector('.edit-name-en').value.trim();
+const description_en = form.querySelector('.edit-description-en').value.trim();
+
+const name_el = form.querySelector('.edit-name-el').value.trim();
+const description_el = form.querySelector('.edit-description-el').value.trim();
 
 
             const { error } = await supabase
                 .from('menu')
-                .update({
-                    name,
-                    category,
-                    price,
-                    description: description || null,
-                    image,
-                    allergens: allergens || null,
-                    available
-                })
+               .update({
+    name,
+    category,
+    price,
+    description: description || null,
+
+    name_en: name_en || null,
+    description_en: description_en || null,
+
+    name_el: name_el || null,
+    description_el: description_el || null,
+
+    image,
+    allergens: allergens || null,
+    available
+})
                 .eq('id', id);
 
 

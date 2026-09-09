@@ -1,5 +1,99 @@
 
 import { supabase } from './supabase.js'
+const translations = {
+    sk: {
+        about: 'O nás',
+        catering: 'Catering',
+        location: 'Kde nás nájdete',
+        contact: 'Kontakt',
+        wolt: 'Objednajte si nás na Wolt',
+        owner: 'Administrácia',
+        creator: 'Web vytvoril',
+
+        dailyMenu: 'Denné Menu',
+        promotion: 'AKCIA',
+        mapButton: 'Otvoriť v Google Maps',
+        address: '📍 Krížna 8, Bratislava, Slovensko',
+openingHours: '🕐 Pondelok – Sobota: 11:00 – 22:00',
+phone: '📞 Telefón: +421 918 286 414',
+email: '✉️ E-mail: bistrosuvlaki@gmail.com',
+pitaInfo: 'Všetky pity sú plnené tzatziki, paradajkou, cibuľkou a hranolkami. FIT VERZIA: hranolky môžete vymeniť za šalát.',
+plateInfo: 'Každé jedlo z tejto kategórie podávame s hranolkami, tzatziki, paradajkou, cibuľkou a pita chlebom. FIT VERZIA: hranolky a pita chlieb vám radi vymeníme za šalát.',
+allergens: 'Alergény',
+allergensPage: 'Alergény',
+catPredjedla: 'Predjedlá',
+catNatierky: 'Nátierky',
+catSalaty: 'Šaláty',
+catPita: 'Pita menu',
+catPlate: 'Grécko na tanieri',
+catFish: 'Ryby a plody mora',
+catDesserts: 'Dezerty',
+catDrinks: 'Nápoje',
+    },
+
+    en: {
+        about: 'About us',
+        catering: 'Catering',
+        location: 'Where to find us',
+        contact: 'Contact',
+        wolt: 'Order us on Wolt',
+        owner: 'Administration',
+        creator: 'Website created by',
+
+        dailyMenu: 'Daily Menu',
+        promotion: 'SPECIAL OFFER',
+        mapButton: 'Open in Google Maps',
+        address: '📍 Krížna 8, Bratislava, Slovakia',
+openingHours: '🕐 Monday – Saturday: 11:00 – 22:00',
+phone: '📞 Phone: +421 918 286 414',
+email: '✉️ E-mail: bistrosuvlaki@gmail.com',
+pitaInfo: 'All pitas are filled with tzatziki, tomato, onion and fries. FIT VERSION: fries can be replaced with salad.',
+plateInfo: 'Each dish from this category is served with fries, tzatziki, tomato, onion and pita bread. FIT VERSION: fries and pita bread can be replaced with salad.',
+allergens: 'Allergens',
+allergensPage: 'Allergens',
+catPredjedla: 'Starters',
+catNatierky: 'Spreads',
+catSalaty: 'Salads',
+catPita: 'Pita menu',
+catPlate: 'Greece on a plate',
+catFish: 'Fish & Seafood',
+catDesserts: 'Desserts',
+catDrinks: 'Drinks',
+    },
+
+    el: {
+        about: 'Σχετικά με εμάς',
+        catering: 'Catering',
+        location: 'Πού θα μας βρείτε',
+        contact: 'Επικοινωνία',
+        wolt: 'Παραγγείλτε μας στο Wolt',
+        owner: 'Διαχείριση',
+        creator: 'Ιστοσελίδα από',
+        dailyMenu: 'Ημερήσιο Μενού',
+        promotion: 'ΠΡΟΣΦΟΡΑ',
+        mapButton: 'Άνοιγμα στο Google Maps',
+        address: '📍 Krížna 8, Μπρατισλάβα, Σλοβακία',
+openingHours: '🕐 Δευτέρα – Σάββατο: 11:00 – 22:00',
+phone: '📞 Τηλέφωνο: +421 918 286 414',
+email: '✉️ E-mail: bistrosuvlaki@gmail.com',
+pitaInfo: 'Όλες οι πίτες περιέχουν τζατζίκι, ντομάτα, κρεμμύδι και πατάτες. FIT ΕΚΔΟΣΗ: οι πατάτες μπορούν να αντικατασταθούν με σαλάτα.',
+plateInfo: 'Κάθε πιάτο αυτής της κατηγορίας σερβίρεται με πατάτες, τζατζίκι, ντομάτα, κρεμμύδι και πίτα. FIT ΕΚΔΟΣΗ: οι πατάτες και η πίτα μπορούν να αντικατασταθούν με σαλάτα.',
+allergens: 'Αλλεργιογόνα',
+allergensPage: 'Αλλεργιογόνα',
+catPredjedla: 'Ορεκτικά',
+catNatierky: 'Αλοιφές',
+catSalaty: 'Σαλάτες',
+catPita: 'Μενού πίτας',
+catPlate: 'Η Ελλάδα στο πιάτο',
+catFish: 'Ψάρια & θαλασσινά',
+catDesserts: 'Επιδόρπια',
+catDrinks: 'Ποτά',
+    }
+};
+let currentLanguage = localStorage.getItem('language') || 'sk';
+
+
+
 const menuData = [
   // PREDJEDLÁ
   {
@@ -564,6 +658,9 @@ const menuData = [
   }
 ];
 const buttons = document.querySelectorAll('.tab-btn');
+buttons.forEach(button => {
+    button.style.width = `${button.offsetWidth}px`;
+});
 const container = document.getElementById('menu-container');
 const announcementContainer = document.getElementById('announcement');
 function rendermenu(items) {
@@ -582,7 +679,6 @@ categories.sort((a, b) => {
     if (b === 'Denné Menu') return 1;
     return 0;
 });
-  
   // 2. Создаем отдельную секцию с заголовком для каждой категории
   const html = categories
     .map(category => {
@@ -593,16 +689,38 @@ categories.sort((a, b) => {
 
      return `
 <section id="${sectionId}" class="menu-section">
-    <h2 class="category-title">${category}</h2>
+   <h2 class="category-title">
+    ${
+        category === 'Denné Menu'
+            ? translations[currentLanguage].dailyMenu
+            : category === 'Predjedlá'
+                ? translations[currentLanguage].catPredjedla
+                : category === 'Nátierky'
+                    ? translations[currentLanguage].catNatierky
+                    : category === 'Šaláty'
+                        ? translations[currentLanguage].catSalaty
+                        : category === 'Pita menu'
+                            ? translations[currentLanguage].catPita
+                            : category === 'Grécko na tanieri'
+                                ? translations[currentLanguage].catPlate
+                                : category === 'Ryby a plody mora'
+                                    ? translations[currentLanguage].catFish
+                                    : category === 'Dezerty'
+                                        ? translations[currentLanguage].catDesserts
+                                        : category === 'Nápoje'
+                                            ? translations[currentLanguage].catDrinks
+                                            : category
+    }
+</h2>
     ${category === 'Pita menu' ? `
     <p class="category-info">
-        Všetky pity sú plnené tzatziki, paradajkou, cibuľkou a hranolkami. FIT VERZIA: hranolky môžete vymeniť za šalát.
+        ${translations[currentLanguage].pitaInfo}
     </p>
 ` : ''}
 
 ${category === 'Grécko na tanieri' ? `
     <p class="category-info">
-        Každé jedlo z tejto kategórie podávame s hranolkami, tzatziki, paradajkou, cibuľkou a pita chlebom. FIT VERZIA: hranolky a pita chlieb vám radi vymeníme za šalát.
+        ${translations[currentLanguage].plateInfo}
     </p>
 ` : ''}
 
@@ -614,13 +732,13 @@ ${category === 'Grécko na tanieri' ? `
           ? `
             <div class="daily-menu-card"
                  data-image="${item.Image}"
-                 data-name="Denné Menu"
+                 data-name="${translations[currentLanguage].dailyMenu}"
                  data-description=""
                  data-price="">
 
                 <img
                     src="${item.Image}"
-                    alt="Denné Menu"
+                    alt="${translations[currentLanguage].dailyMenu}"
                 >
 
             </div>
@@ -630,7 +748,8 @@ ${category === 'Grécko na tanieri' ? `
                  data-image="${item.Image}"
                  data-name="${item.name}"
                  data-description="${item.description}"
-                 data-price="${item.price}">
+data-allergens="${item.allergens || ''}"
+data-price="${item.price}">
 
                 <div class="menu-image">
                     <img
@@ -643,10 +762,12 @@ ${category === 'Grécko na tanieri' ? `
                     <h3>${item.name}</h3>
                     <p class="description">${item.description}</p>
 
-                    ${item.allergens
-                        ? `<p class="allergens">Alergény: ${item.allergens}</p>`
-                        : ''
-                    }
+                   ${item.allergens
+    ? `<p class="allergens">
+        ${translations[currentLanguage].allergens}: ${item.allergens}
+       </p>`
+    : ''
+}
 
                     <span class="price">${item.price}</span>
                 </div>
@@ -683,25 +804,47 @@ console.log('ОШИБКА SUPABASE:', error);
     container.innerHTML = '<p>Не удалось загрузить меню.</p>';
     return;
   }
+const items = data.map(item => {
 
-  const items = data.map(item => ({
-    ...item,
-    Image: item.image,
-    price: `${Number(item.price).toFixed(2)} €`
-  }));
+    let name = item.name;
+    let description = item.description;
+
+    if (currentLanguage === 'en') {
+        name = item.name_en || item.name;
+        description = item.description_en || item.description;
+    }
+
+    if (currentLanguage === 'el') {
+        name = item.name_el || item.name;
+        description = item.description_el || item.description;
+    }
+
+    return {
+        ...item,
+        name,
+        description,
+        Image: item.image,
+        price: `${Number(item.price).toFixed(2)} €`
+    };
+});
 
   rendermenu(items);
-  const dailySection = document.getElementById('category-Denné-Menu');
+const dailySection = document.getElementById('category-Denné-Menu');
 
 if (dailySection && announcementContainer) {
-    const dailyAndAnnouncement = document.createElement('div');
 
-    dailyAndAnnouncement.className = 'daily-and-announcement';
+    let dailyAndAnnouncement =
+        document.querySelector('.daily-and-announcement');
 
-    dailySection.parentNode.insertBefore(
-        dailyAndAnnouncement,
-        dailySection
-    );
+    if (!dailyAndAnnouncement) {
+        dailyAndAnnouncement = document.createElement('div');
+        dailyAndAnnouncement.className = 'daily-and-announcement';
+
+        dailySection.parentNode.insertBefore(
+            dailyAndAnnouncement,
+            dailySection
+        );
+    }
 
     dailyAndAnnouncement.appendChild(announcementContainer);
     dailyAndAnnouncement.appendChild(dailySection);
@@ -710,8 +853,8 @@ if (dailySection && announcementContainer) {
   // Кнопки категорий
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      const categoryName = button.textContent.trim();
-      const targetId = `category-${categoryName.replace(/ /g, '-')}`;
+    const categoryName = button.dataset.category;
+const targetId = `category-${categoryName.replace(/ /g, '-')}`;
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
@@ -727,6 +870,7 @@ if (dailySection && announcementContainer) {
   const modalImage = document.getElementById('modal-image');
   const modalName = document.getElementById('modal-name');
   const modalDescription = document.getElementById('modal-description');
+  const modalAllergens = document.getElementById('modal-allergens');
   const modalPrice = document.getElementById('modal-price');
   const modalClose = document.getElementById('modal-close');
 
@@ -740,6 +884,9 @@ if (dailySection && announcementContainer) {
       modalImage.alt = card.dataset.name;
       modalName.textContent = card.dataset.name;
       modalDescription.textContent = card.dataset.description;
+      modalAllergens.textContent = card.dataset.allergens
+    ? `Alergény: ${card.dataset.allergens}`
+    : '';
       modalPrice.textContent = card.dataset.price;
 
       modal.style.display = 'block';
@@ -749,6 +896,11 @@ if (dailySection && announcementContainer) {
   modalClose.addEventListener('click', () => {
     modal.style.display = 'none';
   });
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
 }
 
 async function loadAnnouncement() {
@@ -766,11 +918,11 @@ async function loadAnnouncement() {
     const announcementImage = data.announcement || '/akcia-default.png';
 
 announcementContainer.innerHTML = `
-    <h2 class="category-title">AKCIA</h2>
+    <h2 class="category-title">${translations[currentLanguage].promotion}</h2>
 
     <img
         src="${announcementImage}"
-        alt="Akcia"
+        alt="${translations[currentLanguage].promotion}Akcia"
     >
 `;
 
@@ -813,4 +965,89 @@ document.addEventListener('click', (event) => {
     ) {
         sideMenu.classList.remove('open');
     }
+});
+const creatorButton = document.getElementById('creator-button');
+const creatorLinks = document.getElementById('creator-links');
+
+if (creatorButton && creatorLinks) {
+    creatorButton.addEventListener('click', () => {
+        creatorLinks.classList.toggle('open');
+    });
+}
+
+function setLanguage(lang) {
+    const t = translations[lang];
+
+    if (!t) return;
+
+    currentLanguage = lang;
+    document.querySelectorAll('.tab-btn').forEach(button => {
+
+    const category = button.dataset.category;
+
+    const categoryTranslations = {
+        'Predjedlá': t.catPredjedla,
+        'Nátierky': t.catNatierky,
+        'Šaláty': t.catSalaty,
+        'Pita menu': t.catPita,
+        'Grécko na tanieri': t.catPlate,
+        'Ryby a plody mora': t.catFish,
+        'Dezerty': t.catDesserts,
+        'Nápoje': t.catDrinks
+    };
+
+    if (categoryTranslations[category]) {
+        button.textContent = categoryTranslations[category];
+    }
+
+});
+
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.dataset.i18n;
+
+        if (t[key]) {
+            element.textContent = t[key];
+        }
+    });
+
+    const creatorButton = document.querySelector('.creator-button');
+
+    if (creatorButton) {
+        creatorButton.textContent = t.creator;
+    }
+
+    const mapButton = document.querySelector('.maps-button');
+
+    if (mapButton) {
+        mapButton.textContent = `📍 ${t.mapButton}`;
+    }
+
+
+document.querySelectorAll('.language-btn').forEach(button => {
+    button.classList.toggle(
+        'active',
+        button.dataset.lang === lang
+    );
+});
+
+localStorage.setItem('language', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const languageButtons = document.querySelectorAll('.language-btn');
+
+    languageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.getAttribute('data-lang');
+
+            console.log('Выбран язык:', lang);
+
+            setLanguage(lang);
+
+loadMenu();
+loadAnnouncement();
+        });
+    });
+
+    const savedLanguage = localStorage.getItem('language') || 'sk';
+    setLanguage(savedLanguage);
 });

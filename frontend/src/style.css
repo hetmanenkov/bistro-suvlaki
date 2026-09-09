@@ -63,21 +63,39 @@
 
 
 
- .category-tabs .tab-btn {/*Каждая обычная кнопка*/
-    font-family: Georgia, "Times New Roman", serif;
-  position: relative;
-  z-index: 1;
-  background-color: #ffffff;
-  color: #0D47A1;
-  border: none;
-  padding: 13px 26px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+.category-tabs .tab-btn {
+    position: relative;
+    z-index: 9999 !important;
+
+    flex-shrink: 0;
+
+    background-color: #ffffff;
+    color: #0047AB;
+
+    border: none;
+
+    padding: 11px 20px;
+    border-radius: 20px;
+
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 17px !important;
+    font-weight: bold !important;
+
+    height: 42px;
+    min-width: 120px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.2s ease;
 }
 
 
@@ -93,10 +111,10 @@
 
 body {
     background-image:
-        linear-gradient(
+       /* linear-gradient(
             rgba(0, 0, 0, 0.48),
             rgba(0, 0, 0, 0.55)
-        ),
+        ),*/
         url('/finlandia.png');
 
     background-size: cover;
@@ -196,7 +214,7 @@ body {
 }
 
 .menu-card .description {
-    font-size: 12px;
+    font-size: 20px;
     color: #1976D2;
     margin: 0 0 15px 0;
     flex-grow: 1; /* Толкает цену вниз */
@@ -216,62 +234,222 @@ p{
   color: #FFFFFF;
   font-size: 25px;
 }
+/* =========================
+   🍽️ MODAL БЛЮДА
+   ========================= */
+
 .dish-modal {
     display: none;
+
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     background: rgba(0, 0, 0, 0.75);
+
     z-index: 10000;
+
+    overflow-y: auto;
 }
+
+
+/* =========================
+   🖥️ КОМПЬЮТЕР
+   ========================= */
 
 .dish-modal-content {
     position: relative;
-    width: 1000px;
+
+    width: 650px;
     max-width: 90%;
-    margin: 80px auto;
-    background: #121212;
-    border-radius: 15px;
-    padding: 20px;
+
+    margin: 60px auto;
+
+    background: #f7f0df;
+
+    border: 3px solid #1b4f72;
+    border-radius: 5px;
+
+    padding: 25px;
+
     box-sizing: border-box;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.4);
+
+    text-align: center;
 }
+
+
+/* большая фотография */
 
 #modal-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 10px;
+    width: 430px;
+    height: 430px;
+    max-width: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 7px solid #1b4f72;
+
+    background: #ffffff;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 3px #e8e8e8;
+
+    display: block;
+
+    margin: 0 auto;
 }
+
+
+/* название */
 
 #modal-name {
-    color: #ffffff;
-    margin: 15px 0 8px;
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    margin: 20px 0 10px;
 }
+
+
+/* описание */
 
 #modal-description {
-    color: #FFFFFF;
-    font-size: 14px;
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin: 0 auto 15px;
+
+    max-width: 500px;
 }
 
+
+/* цена */
+
 #modal-price {
-    color: #ffffff;
-    font-size: 18px;
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+
     font-weight: bold;
 }
 
+
+/* крестик */
+
 .modal-close {
     position: absolute;
-    top: -5px;
-    right: -3px;
+
+    top: 8px;
+    right: 12px;
+
     border: none;
-    background: none;
-    color: #FFFFFF;
-    font-size: 30px;
+
+    background: transparent;
+
+    color: #1b4f72;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
     cursor: pointer;
-    z-index: 1;
+
+    z-index: 5;
+
+    line-height: 1;
+}
+
+.modal-close:hover {
+    transform: scale(1.15);
+}
+
+
+/* =========================
+   📱 ТЕЛЕФОН
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .dish-modal {
+        padding: 20px 0;
+    }
+
+    .dish-modal-content {
+        width: 92%;
+        max-width: 92%;
+
+        margin: 25px auto;
+
+        padding: 15px;
+
+        border-radius: 10px;
+    }
+
+    #modal-image {
+        width: 100%;
+        height: auto;
+
+        max-height: 55vh;
+
+        object-fit: contain;
+
+        border-radius: 50%;
+
+        border-width: 6px;
+
+        padding: 8px;
+    }
+
+    #modal-name {
+        font-size: 21px;
+
+        margin: 13px 0 7px;
+    }
+
+    #modal-description {
+        font-size: 13px;
+
+        line-height: 1.4;
+
+        margin-bottom: 10px;
+    }
+
+    #modal-price {
+        font-size: 17px;
+    }
+
+    .modal-close {
+        top: 4px;
+        right: 6px;
+
+        font-size: 28px;
+    }
 }
 .about-button {
     position: absolute;
@@ -293,8 +471,9 @@ p{
 }
 .catering-back-button {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    
+    top: 13px;
+    right: 150px;
 
     color: #ffffff;
     text-decoration: none;
@@ -307,8 +486,9 @@ p{
 }
 .about-back-button {
     position: absolute;
-    top: 30px;
-    right: 30px;
+   
+    top: 13px;
+    right: 150px;
 
     color: #ffffff;
     text-decoration: none;
@@ -434,7 +614,7 @@ p{
     padding: 10px 20px;
 
     color: #ffffff;
-    background: #d96b43;
+    background: #1976D2;
 
     text-decoration: none;
     font-size: 14px;
@@ -533,7 +713,7 @@ p{
     object-fit: cover;
     display: block;
     border-radius: 10px;
-    filter: brightness(0.75);
+    filter: brightness(1);
 }
 
 .daily-and-announcement .category-title {
@@ -545,6 +725,229 @@ p{
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+}
+/* =========================
+   🍽️ MODAL БЛЮДА
+   ========================= */
+
+.dish-modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 10000;
+
+    overflow-y: auto;
+}
+
+
+/* =========================
+   🖥️ КОМПЬЮТЕР
+   ========================= */
+
+.dish-modal-content {
+    position: relative;
+
+    width: 650px;
+    max-width: 90%;
+
+    margin: 60px auto;
+
+    background: #f7f0df;
+
+    border: 3px solid #1b4f72;
+    border-radius: 5px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.4);
+
+    text-align: center;
+}
+
+
+/* большая фотография */
+
+#modal-image {
+    width: 430px;
+    height: 430px;
+    max-width: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 7px solid #1b4f72;
+
+    background: #ffffff;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 3px #e8e8e8;
+
+    display: block;
+
+    margin: 0 auto;
+}
+
+
+/* название */
+
+#modal-name {
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    margin: 20px 0 10px;
+}
+
+
+/* описание */
+
+#modal-description {
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin: 0 auto 15px;
+
+    max-width: 500px;
+}
+
+
+/* цена */
+
+#modal-price {
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+
+/* крестик */
+
+.modal-close {
+    position: absolute;
+
+    top: 8px;
+    right: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #1b4f72;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    line-height: 1;
+}
+
+.modal-close:hover {
+    transform: scale(1.15);
+}
+#modal-allergens {
+    color: #174a70;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    opacity: 0.65;
+    margin: 8px 0 12px;
+}
+
+
+/* =========================
+   📱 ТЕЛЕФОН
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .dish-modal {
+        padding: 20px 0;
+    }
+
+    .dish-modal-content {
+        width: 92%;
+        max-width: 92%;
+
+        margin: 25px auto;
+
+        padding: 22px 15px 28px;
+        border-radius: 10px;
+    }
+
+    #modal-image {
+        width: 100%;
+        height: auto;
+
+        max-height: 55vh;
+
+        object-fit: contain;
+
+        border-radius: 50%;
+
+        border-width: 6px;
+
+        padding: 8px;
+    }
+
+    #modal-name {
+        font-size: 21px;
+
+        margin: 13px 0 7px;
+    }
+
+    #modal-description {
+        font-size: 13px;
+
+        line-height: 1.4;
+
+        margin-bottom: 10px;
+    }
+
+    #modal-price {
+        font-size: 17px;
+    }
+
+    .modal-close {
+        top: 4px;
+        right: 6px;
+
+        font-size: 28px;
+    }
 }
 /* =========================
    CATERING PAGE
@@ -619,7 +1022,7 @@ p{
     border-radius: 50%;
 
     background: #ffffff;
-    color: #1976D2;
+    color: #145596;
 
     font-size: 24px;
     font-weight: bold;
@@ -740,14 +1143,14 @@ html {
 }
 .grill-time {
     font-family: "Trebuchet MS", Arial, sans-serif;
-    font-size: 30px;
-    font-weight: 100;
+    font-size: 50px;
+    font-weight: 400;
     letter-spacing: 4px;
     text-transform: uppercase;
 
     color: #ffffff;
 
-    margin: 40px 0 10;
+    margin: 50px 0 10;
     text-align: center;
     
 }
@@ -771,8 +1174,499 @@ html {
 .allergens {
     font-family: Georgia, "Times New Roman", serif;
 }
+/* =========================
+   CREATOR PAGE
+========================= */
+
+.creator-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.creator-content {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 60px auto;
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+}
+
+.creator-content h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 50px;
+    margin-bottom: 25px;
+
+    color: #ffffff;
+}
+
+.creator-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 35px;
+    margin: 25px 0 15px;
+
+    color: #ffffff;
+}
+
+.creator-content p {
+    max-width: 520px;
+    margin: 0 auto 18px;
+
+    font-size: 20px;
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.creator-thanks {
+    font-size: 18px !important;
+}
+
+.creator-contact-title {
+    margin-top: 25px !important;
+}
+
+.creator-divider {
+    width: 80px;
+    height: 2px;
+
+    margin: 30px auto;
+
+    background: #1976D2;
+}
+
+.creator-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.creator-socials a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+
+    transition: all 0.2s ease;
+}
+
+.creator-socials a:hover {
+    color: #ffffff;
+    background: #d96b43;
+    border-color: #d96b43;
+}
+.creator-button { 
+    position: absolute; 
+    left: 23px; 
+    bottom: 22px; 
+ 
+    color: rgba(255, 255, 255, 0.35) !important;
+ 
+    font-family: Georgia, "Times New Roman", serif; 
+    font-size: 10px !important;
+    font-weight: 400; 
+ 
+    text-decoration: none; 
+    cursor: pointer; 
+ 
+    transition: color 0.2s ease; 
+}
+.creator-back-button {
+    position: absolute;
+   
+    top: 13px;
+    right: 150px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 10px 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: opacity 0.2s ease;
+}
+
+.creator-back-button:hover {
+    opacity: 0.7;
+}
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: fixed;
+    align-items: center;
+    gap: 6px;
+
+    z-index: 10001;
+}
+
+.language-btn {
+    border: none;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    padding: 3px 5px;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.language-btn:hover {
+    color: #ffffff;
+}
+
+.language-btn.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* =========================
+   ALLERGENS PAGE
+========================= */
+
+.allergens-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.allergens-content {
+    width: 90%;
+    max-width: 700px;
+
+    margin: 100px auto 60px;
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.allergens-content h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    color: #ffffff;
+
+    margin-bottom: 25px;
+}
+
+.allergens-intro {
+    max-width: 560px;
+    margin: 0 auto 35px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.allergens-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    max-width: 600px;
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.allergens-list div {
+    padding: 10px 14px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.4;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.allergens-list strong {
+    display: inline-block;
+    width: 32px;
+
+    color: #ffffff;
+}
+
+.allergens-back-button {
+    position: absolute;
+
+    top: 24px;
+    right: 150px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.allergens-back-button:hover {
+    opacity: 0.7;
+}
+/* =========================
+   INTRO LOGO
+========================= */
+
+#site-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url('/intro-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: intro-hide 1s ease forwards;
+    animation-delay: 1.9s;
+}
+
+.intro-logo {
+    width: 500px;
+    max-width: 80%;
+    height: auto;
+    position: relative;
+    top: -80px;
+
+    animation: intro-logo 2.2s ease forwards;
+}
+
+@keyframes intro-logo {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes intro-hide {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+}
+html.intro-seen #site-intro {
+    display: none !important;
+}
+/* =========================
+   🇬🇷 МЕНЮ ТАВЕРНЫ
+   ========================= */
+
+.menu-card {
+    position: relative;
+    background: #f7f0df;
+    border: 2px solid #1b4f72;
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.35);
+    overflow: visible;
+    height: auto;
+    border-radius: 3px;
+    padding: 0 10px 12px;
+    box-sizing: border-box;
+}
+
+/* декоративный уголок */
+.menu-card::before {
+    content: "❧";
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    color: #1b4f72;
+    font-size: 18px;
+    z-index: 3;
+}
+
+/* второй декоративный уголок */
+.menu-card::after {
+    content: "❧";
+    position: absolute;
+    bottom: 3px;
+    right: 7px;
+    color: #1b4f72;
+    font-size: 18px;
+    transform: rotate(180deg);
+    z-index: 3;
+}
 
 
+/* =========================
+   🍽️ ФОТО КАК ТАРЕЛКА
+   ========================= */
+
+.menu-card .menu-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    margin-top: -18px;
+    margin-bottom: 5px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 7px solid #1b4f72;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 3px #e8e8e8;
+    
+    position: relative;
+    z-index: 2;
+}
+
+.menu-card .menu-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    display: block;
+}
+
+
+/* =========================
+   📜 ТЕКСТ МЕНЮ
+   ========================= */
+
+.menu-card .card-content {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+    padding: 5px 4px 0;
+
+    background: transparent;
+
+    border-radius: 0;
+
+    text-align: center;
+}
+
+
+/* название */
+.menu-card .card-content h3 {
+    margin: 3px 0 6px;
+
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    line-height: 1.15;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+
+/* описание */
+.menu-card .description {
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+    line-height: 1.25;
+
+    margin: 0 0 8px;
+}
+
+
+/* аллергены */
+.menu-card .allergens {
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    margin: 4px 0;
+    opacity: 0.65;
+}
+
+
+/* цена */
+.menu-card .price {
+    display: block;
+
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    margin-top: 4px;
+}
 
 
 
@@ -782,6 +1676,20 @@ html {
     /* =========================
        МОБИЛЬНЫЙ ФОН
        ========================= */
+        #site-intro {
+        background-image: url('/mobile-bg.png');
+        background-size: 100% 100%;
+        background-position: center;
+    }
+    .intro-logo {
+    width: 250px;
+    max-width: 80%;
+    height: auto;
+    position: relative;
+    top: -20px;
+
+    animation: intro-logo 2.2s ease forwards;
+}
 
   body {
         background: none;
@@ -795,16 +1703,52 @@ html {
         z-index: -1;
 
         background-image:
-            linear-gradient(
+          /*  linear-gradient(
                 rgba(0, 0, 0, 0.48),
                 rgba(0, 0, 0, 0.55)
-            ),
+            ),*/
             url('/sweden.png');
 
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
     }
+    .language-switcher {
+    top: 12px;
+    right: 12px;
+    gap: 4px;
+}
+
+.language-btn {
+    font-size: 10px;
+    padding: 2px 4px;
+}
+      .allergens-content {
+        width: 92%;
+        margin: 80px auto 40px;
+        padding: 20px 10px;
+    }
+
+    .allergens-content h1 {
+        font-size: 32px;
+    }
+
+    .allergens-intro {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .allergens-list div {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .allergens-back-button {
+        top: 17px;
+        right: 100px;
+        font-size: 11px;
+    }
+
     
      #back-to-top {
         right: 15px;
@@ -876,6 +1820,94 @@ html {
     padding: 9px 16px;
 }
 
+ .creator-content {
+        width: 92%;
+        padding: 25px 18px;
+    }
+
+    .creator-content h1 {
+        font-size: 32px;
+    }
+
+    .creator-content h2 {
+        font-size: 21px;
+        max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .creator-content p {
+        font-size: 13px;
+        line-height: 1.5;
+        max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .creator-socials {
+        gap: 10px;
+    }
+
+    .creator-socials a {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+    .creator-back-button {
+    top: 17px;
+        right: 100px;
+
+    padding: 7px 12px;
+    font-size: 11px;
+}
+.about-back-button,
+.catering-back-button {
+    top: 11px;
+    right: 100px;
+    padding: 7px 12px;
+    font-size: 11px;
+}
+.menu-card .menu-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    margin-top: -18px;
+    margin-bottom: 5px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 4px solid #1b4f72;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 3px #e8e8e8;
+    
+    position: relative;
+    z-index: 2;
+}
+.menu-card .card-content h3 {
+    margin: 3px 0 6px;
+
+    color: #174a70;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    line-height: 1.15;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+}
 
     /* =========================
    CATERING
@@ -1057,7 +2089,7 @@ html {
         position: absolute;
         top: 50%;
         left: 50px;
-        right: -600px;
+        right: -800px;
 
         transform: translateY(-50%);
 
@@ -1094,7 +2126,7 @@ html {
     .skewer-konchalo {
         position: absolute;
         top: 38.5px;
-        left: 1045px;
+        left: 1240px;
 
         transform: translateY(-50%);
 
@@ -1167,6 +2199,7 @@ font-family: Georgia, "Times New Roman", serif;
         padding: 8px 12px;
         font-size: 8px;
     }
+    
 
     /* =========================
        KONTAKT + KDE NÁS NÁJDETE
@@ -1298,6 +2331,7 @@ font-family: Georgia, "Times New Roman", serif;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+
 .admin-dish h3 {
     margin: 0 0 12px 0;
     font-size: 20px;
@@ -1396,31 +2430,6 @@ font-family: Georgia, "Times New Roman", serif;
 
 .owner-login:hover {
     opacity: 1;
-}
-.site-footer {
-    width: 100%;
-    margin-top: 60px;
-    padding: 20px 10px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.creator-button {
-    border: none;
-    background: transparent;
-
-    color: #1976D2(255, 255, 255, 0.3);
-
-    font-family: inherit;
-    font-size: 9px;
-    font-weight: 400;
-
-    padding: 3px 6px;
-    cursor: pointer;
-}
-
-.creator-button:hover {
-    color: rgba(255, 255, 255, 0.55);
 }
 
 @media (max-width: 600px) {

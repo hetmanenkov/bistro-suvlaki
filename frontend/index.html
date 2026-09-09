@@ -9,7 +9,20 @@
 </head>
 
 <body>
-  
+    <script>
+    if (sessionStorage.getItem('bistroIntroSeen')) {
+        document.documentElement.classList.add('intro-seen');
+    } else {
+        sessionStorage.setItem('bistroIntroSeen', 'true');
+    }
+</script>
+  <div id="site-intro">
+    <img
+        src="/logo.png"
+        class="intro-logo"
+        alt="Bistro Suvlaki"
+    >
+</div>
 
    <button id="menu-toggle" class="menu-toggle" aria-label="Otvoriť menu">
     ☰
@@ -21,84 +34,152 @@
         ×
     </button>
 
-    <nav class="side-menu-links">
-        <a href="/about.html">O nás</a>
-        <a href="/catering.html">Catering</a>
+   <nav class="side-menu-links">
 
-        <a href="#place">Kde nás nájdete</a>
-       <a href="#contact">Kontakt</a>
-<a
-    href="https://wolt.com/sk/svk/bratislava/restaurant/bistro-suvlaki"
-    target="_blank"
-    rel="noopener noreferrer"
->
-   Objednajte si nás na Wolt
+    <a href="/about.html" data-i18n="about">
+        O nás
+    </a>
+
+    <a href="/catering.html" data-i18n="catering">
+        Catering
+    </a>
+
+    <a href="#place" data-i18n="location">
+        Kde nás nájdete
+    </a>
+
+    <a href="#contact" data-i18n="contact">
+        Kontakt
+    </a>
+<a href="/allergens.html" data-i18n="allergensPage">
+    Alergény
 </a>
-        <a href="/admin.html">Administrácia</a>
-        <div class="social-links">
+    <a
+        href="https://wolt.com/sk/svk/bratislava/restaurant/bistro-suvlaki"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="wolt"
+    >
+        Objednajte si nás na Wolt
+    </a>
+
+    <a href="/admin.html" data-i18n="owner">
+        Administrácia
+    </a>
+
+    <div class="social-links">
+
+        <a
+            href="https://www.instagram.com/bistrosuvlaki?stkn=MWI0dXV1enE2N2dqMw=="
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Instagram
+        </a>
+
+        <a
+            href="https://www.facebook.com/share/1DJNLvH5uX/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Facebook
+        </a>
+
+    </div>
 
     <a
-    href="https://www.instagram.com/bistrosuvlaki?stkn=MWI0dXV1enE2N2dqMw=="
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Instagram
-</a>
+        href="/creator.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="creator-button"
+        data-i18n="creator"
+    >
+        Web vytvoril
+    </a>
 
-   <a
-    href="https://www.facebook.com/share/1DJNLvH5uX/"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Facebook
-</a>
-
+</nav>
 </div>
-<footer class="site-footer">
-    <button class="creator-button">
-        Web vytvorila
-    </button>
-</footer>
-    </nav>
-
+<div class="language-switcher">
+    <button class="language-btn active" data-lang="sk">SK</button>
+    <button class="language-btn" data-lang="en">EN</button>
+    <button class="language-btn" data-lang="el">GR</button>
 </div>
 
     <div id="app">
         <h1 class="bistro-title">BISTRO SUVLAKI</h1>
       <p class="grill-time">GRILL TIME</p>
     </div>
-    <div class="category-tabs">
-     <button class = "tab-btn">Predjedlá</button>
-     <button class = "tab-btn">Nátierky</button>
-     <button class = "tab-btn">Šaláty</button>
-     <button class = "tab-btn">Pita menu</button>
-     <button class = "tab-btn">Grécko na tanieri</button>
-     <button class = "tab-btn">Ryby a plody mora</button>
-     <button class = "tab-btn">Dezerty</button>
-     <button class = "tab-btn">Nápoje</button>
-     <span class = "skewer-konchalo"></span>
-    </div>
+<div class="category-tabs">
+
+    <button class="tab-btn" data-category="Predjedlá">
+        Predjedlá
+    </button>
+
+    <button class="tab-btn" data-category="Nátierky">
+        Nátierky
+    </button>
+
+    <button class="tab-btn" data-category="Šaláty">
+        Šaláty
+    </button>
+
+    <button class="tab-btn" data-category="Pita menu">
+        Pita menu
+    </button>
+
+    <button class="tab-btn" data-category="Grécko na tanieri">
+        Grécko na tanieri
+    </button>
+
+    <button class="tab-btn" data-category="Ryby a plody mora">
+        Ryby a plody mora
+    </button>
+
+    <button class="tab-btn" data-category="Dezerty">
+        Dezerty
+    </button>
+
+    <button class="tab-btn" data-category="Nápoje">
+        Nápoje
+    </button>
+
+    <span class="skewer-konchalo"></span>
+
+</div>
     <div id="announcement" class="announcement" style="display: none;"></div>
 
 <div id="menu-container" class="menu-container"></div>
-    <section id="contact" class="contact-section">
 
-    <h2>Kontakt</h2>
+<section id="contact" class="contact-section">
 
-    <p>📞 Telefón: +421 918 286 414</p>
+    <h2 data-i18n="contact">
+        Kontakt
+    </h2>
 
-    <p>✉️ E-mail: bistrosuvlaki@gmail.com</p>
+    <p data-i18n="phone">
+        📞 Telefón: +421 918 286 414
+    </p>
+
+    <p data-i18n="email">
+        ✉️ E-mail: bistrosuvlaki@gmail.com
+    </p>
 
 </section>
 
 
 <section id="place" class="place-section">
 
-    <h2>Kde nás nájdete</h2>
+    <h2 data-i18n="location">
+        Kde nás nájdete
+    </h2>
 
-    <p>📍 Krížna 8, Bratislava, Slovensko</p>
+    <p data-i18n="address">
+        📍 Krížna 8, Bratislava, Slovensko
+    </p>
 
-    <p>🕐 Pondelok – Sobota: 11:00 – 22:00</p>
+    <p data-i18n="openingHours">
+        🕐 Pondelok – Sobota: 11:00 – 22:00
+    </p>
 
     <div class="map-container">
         <iframe
@@ -116,8 +197,9 @@
         class="maps-button"
         href="https://www.google.com/maps/search/?api=1&query=Bistro+Suvlaki,+Krížna+8,+Bratislava"
         target="_blank"
-        rel="noopener noreferrer">
-        📍 Otvoriť v Google Maps
+        rel="noopener noreferrer"
+    >
+        📍 <span data-i18n="mapButton">Otvoriť v Google Maps</span>
     </a>
 
 </section>
@@ -127,8 +209,9 @@
         <button id="modal-close" class="modal-close">×</button>
         <img id ="modal-image" src="" alt="">
         <h2 id = "modal-name"></h2>
-        <p id = "modal-description"></p>
-        <span id = "modal-price"></span>
+        <p id="modal-description"></p>
+<p id="modal-allergens"></p>
+<span id="modal-price"></span>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>

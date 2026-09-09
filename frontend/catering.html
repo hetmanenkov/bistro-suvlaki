@@ -10,28 +10,48 @@
 </head>
 
 <body>
-<a href="/" class="catering-back-button">Späť na menu</a>
+
+    <div class="language-switcher">
+        <button class="language-btn active" data-lang="sk">SK</button>
+        <button class="language-btn" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="el">GR</button>
+    </div>
+
+    <a
+        href="/"
+        class="catering-back-button"
+        data-i18n="backToMenu"
+    >
+        Späť na menu
+    </a>
 
     <main class="catering-page">
 
-        <h1>Catering</h1>
+        <h1 data-i18n="cateringTitle">
+            Catering
+        </h1>
 
-        <p>
+        <p data-i18n="cateringText1">
             Ponúkame catering s tradičnými gréckymi jedlami
             pre oslavy, firemné podujatia a rôzne spoločenské akcie.
         </p>
 
-        <p>
+        <p data-i18n="cateringText2">
             Radi pre vás pripravíme grécke špeciality podľa vašich
             predstáv a počtu hostí.
         </p>
 
-        <h2>Kontaktujte nás</h2>
+        <h2 data-i18n="cateringContact">
+            Kontaktujte nás
+        </h2>
 
-        <p>📞 +421 950 651 469</p>
-       
+        <p data-i18n="cateringPhone">
+            📞 +421 950 651 469
+        </p>
 
     </main>
+
+    <script type="module" src="/src/catering.js"></script>
 
 </body>
 </html>
