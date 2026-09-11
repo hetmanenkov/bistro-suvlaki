@@ -1458,7 +1458,7 @@ html {
     background-repeat: no-repeat;
 
     animation: intro-hide 1s ease forwards;
-    animation-delay: 1.9s;
+    animation-delay: 2.5s;
 }
 
 .intro-logo {
@@ -1468,7 +1468,10 @@ html {
     position: relative;
     top: -80px;
 
-    animation: intro-logo 2.2s ease forwards;
+    opacity: 0;
+
+    animation: intro-logo 3.5s ease forwards;
+    animation-delay: 0.6s;
 }
 
 @keyframes intro-logo {
