@@ -23,7 +23,17 @@
         alt="Bistro Suvlaki"
     >
 </div>
+<script>
+    const intro = document.getElementById('site-intro');
 
+    if (sessionStorage.getItem('bistro-suvlaki-intro-seen')) {
+        if (intro) {
+            intro.remove();
+        }
+    } else {
+        sessionStorage.setItem('bistro-suvlaki-intro-seen', 'true');
+    }
+</script>
    <button id="menu-toggle" class="menu-toggle" aria-label="Otvoriť menu">
     ☰
 </button>

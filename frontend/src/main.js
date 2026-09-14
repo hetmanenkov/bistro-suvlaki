@@ -1,15 +1,4 @@
 
-const hasVisited = localStorage.getItem('bistro-suvlaki-visited');
-
-if (hasVisited) {
-    const intro = document.getElementById('site-intro');
-
-    if (intro) {
-        intro.remove();
-    }
-} else {
-    localStorage.setItem('bistro-suvlaki-visited', 'true');
-}
 import { supabase } from './supabase.js'
 const translations = {
     sk: {
