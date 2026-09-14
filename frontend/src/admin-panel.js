@@ -48,7 +48,139 @@ async function loadAnnouncement() {
         announcementContainer.style.display = 'none';
     }
 }
+// =========================
+// 🍽️ DAILY MENU
+// =========================
 
+const dailyMenuLayouts = {
+    book: {
+        name: 'denmen.png',
+        label: 'denne menu'
+    },
+    
+};
+
+async function loadDailyMenuSettings() {
+
+    const { data, error } = await supabase
+        .from('daily_menu_settings')
+        .select('*')
+        .eq('id', 1)
+        .single();
+
+    if (error) {
+        console.error('Chyba pri načítaní denného menu:', error);
+        return;
+    }
+
+    const dailyMenuContainer =
+        document.getElementById('daily-menu-admin');
+
+    if (!dailyMenuContainer) {
+        return;
+    }
+
+    dailyMenuContainer.innerHTML = `
+        <h2>Denné Menu</h2>
+
+        <label>
+            Vyberte obrázok:
+        </label>
+
+        <select id="daily-menu-layout">
+
+            ${Object.entries(dailyMenuLayouts).map(([key, item]) => `
+                <option value="${key}" ${data.layout === key ? 'selected' : ''}>
+                    ${item.label}
+                </option>
+            `).join('')}
+
+        </select>
+
+        <div id="daily-menu-preview"></div>
+
+        <label>
+            Text denného menu:
+        </label>
+
+        <textarea
+            id="daily-menu-text"
+            placeholder="Napíšte text denného menu..."
+        >${data.menu_text || ''}</textarea>
+
+        <button id="save-daily-menu">
+            Uložiť denné menu
+        </button>
+    `;
+
+    const layoutSelect =
+        document.getElementById('daily-menu-layout');
+
+    const textInput =
+        document.getElementById('daily-menu-text');
+
+    const preview =
+        document.getElementById('daily-menu-preview');
+
+    function updateDailyMenuPreview() {
+
+        const layout = layoutSelect.value;
+        const image = dailyMenuLayouts[layout].name;
+
+        preview.innerHTML = `
+            <div class="daily-menu-admin-preview">
+                <img
+                    src="/${image}"
+                    alt="Denné Menu"
+                >
+
+                <div class="daily-menu-preview-text">
+                    ${textInput.value.replace(/\n/g, '<br>')}
+                </div>
+            </div>
+        `;
+    }
+
+    layoutSelect.addEventListener(
+        'change',
+        updateDailyMenuPreview
+    );
+
+    textInput.addEventListener(
+        'input',
+        updateDailyMenuPreview
+    );
+
+    updateDailyMenuPreview();
+
+    document
+        .getElementById('save-daily-menu')
+        .addEventListener('click', async () => {
+
+            const layout = layoutSelect.value;
+            const menuText = textInput.value.trim();
+
+            const { error } = await supabase
+                .from('daily_menu_settings')
+                .update({
+                    layout: layout,
+                    menu_text: menuText
+                })
+                .eq('id', 1);
+
+            if (error) {
+                console.error(
+                    'Chyba pri ukladaní denného menu:',
+                    error
+                );
+
+                alert('Nepodarilo sa uložiť denné menu.');
+                return;
+            }
+
+            alert('Denné menu bolo uložené.');
+        });
+}
 saveAnnouncementButton.addEventListener('click', async () => {
 
     const imageFile = announcementImage.files[0];
@@ -624,5 +756,6 @@ const user = await checkUser();
 
 if (user) {
     loadMenu();
-     loadAnnouncement();
+    loadAnnouncement();
+    loadDailyMenuSettings();
 }

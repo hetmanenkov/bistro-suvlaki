@@ -11,7 +11,7 @@ const translations = {
         creator: 'Web vytvoril',
 
         dailyMenu: 'Denné Menu',
-        promotion: 'AKCIA',
+       promotion: 'PODUJATIA',
         mapButton: 'Otvoriť v Google Maps',
         address: '📍 Krížna 8, Bratislava, Slovensko',
 openingHours: '🕐 Pondelok – Sobota: 11:00 – 22:00',
@@ -41,7 +41,7 @@ catDrinks: 'Nápoje',
         creator: 'Website created by',
 
         dailyMenu: 'Daily Menu',
-        promotion: 'SPECIAL OFFER',
+       promotion: 'EVENTS',
         mapButton: 'Open in Google Maps',
         address: '📍 Krížna 8, Bratislava, Slovakia',
 openingHours: '🕐 Monday – Saturday: 11:00 – 22:00',
@@ -70,7 +70,7 @@ catDrinks: 'Drinks',
         owner: 'Διαχείριση',
         creator: 'Ιστοσελίδα από',
         dailyMenu: 'Ημερήσιο Μενού',
-        promotion: 'ΠΡΟΣΦΟΡΑ',
+        promotion: 'ΕΚΔΗΛΩΣΕΙΣ',
         mapButton: 'Άνοιγμα στο Google Maps',
         address: '📍 Krížna 8, Μπρατισλάβα, Σλοβακία',
 openingHours: '🕐 Δευτέρα – Σάββατο: 11:00 – 22:00',
@@ -670,15 +670,9 @@ const categories = [
     ...new Set(
         items
             .map(item => item.category)
-            .filter(category => category)
+            .filter(category => category && category !== 'Denné Menu')
     )
 ];
-
-categories.sort((a, b) => {
-    if (a === 'Denné Menu') return -1;
-    if (b === 'Denné Menu') return 1;
-    return 0;
-});
   // 2. Создаем отдельную секцию с заголовком для каждой категории
   const html = categories
     .map(category => {
@@ -829,26 +823,7 @@ const items = data.map(item => {
 });
 
   rendermenu(items);
-const dailySection = document.getElementById('category-Denné-Menu');
 
-if (dailySection && announcementContainer) {
-
-    let dailyAndAnnouncement =
-        document.querySelector('.daily-and-announcement');
-
-    if (!dailyAndAnnouncement) {
-        dailyAndAnnouncement = document.createElement('div');
-        dailyAndAnnouncement.className = 'daily-and-announcement';
-
-        dailySection.parentNode.insertBefore(
-            dailyAndAnnouncement,
-            dailySection
-        );
-    }
-
-    dailyAndAnnouncement.appendChild(announcementContainer);
-    dailyAndAnnouncement.appendChild(dailySection);
-}
 
   // Кнопки категорий
   buttons.forEach(button => {
@@ -922,14 +897,87 @@ announcementContainer.innerHTML = `
 
     <img
         src="${announcementImage}"
-        alt="${translations[currentLanguage].promotion}Akcia"
+       alt="${translations[currentLanguage].promotion}"
     >
 `;
 
 announcementContainer.style.display = 'block';
 }
+// =========================
+// 🍽️ НОВОЕ ДЕННОЕ МЕНЮ
+// =========================
+
+const dailyMenuLayouts = {
+    book: '/denmen.png'
+};
+
+async function loadDailyMenu() {
+
+    const { data, error } = await supabase
+        .from('daily_menu_settings')
+        .select('*')
+        .eq('id', 1)
+        .single();
+
+    if (error) {
+        console.error('Chyba pri načítaní denného menu:', error);
+        return;
+    }
+
+    if (!data || !data.layout || !data.menu_text) {
+        return;
+    }
+
+    const image = dailyMenuLayouts[data.layout];
+
+    if (!image) {
+        return;
+    }
+
+    const dailyMenuContainer = document.createElement('div');
+
+    dailyMenuContainer.className = 'daily-menu-new';
+
+    dailyMenuContainer.innerHTML = `
+        <h2 class="category-title">
+            ${translations[currentLanguage].dailyMenu}
+        </h2>
+
+        <div class="daily-menu-new-image ${data.layout}">
+            <img src="${image}" alt="${translations[currentLanguage].dailyMenu}">
+
+            <div class="daily-menu-new-text">
+                ${data.menu_text.replace(/\n/g, '<br>')}
+            </div>
+        </div>
+    `;
+
+    const announcement = document.getElementById('announcement');
+
+    if (announcement) {
+
+        let wrapper = document.querySelector('.daily-and-announcement');
+
+        if (!wrapper) {
+            wrapper = document.createElement('div');
+            wrapper.className = 'daily-and-announcement';
+
+            announcement.parentNode.insertBefore(wrapper, announcement);
+        }
+
+        wrapper.appendChild(dailyMenuContainer);
+        wrapper.appendChild(announcement);
+
+    } else {
+
+        document
+            .getElementById('menu-container')
+            .prepend(dailyMenuContainer);
+    }
+}
 loadMenu();
 loadAnnouncement();
+loadDailyMenu();
 const backToTop = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
@@ -1045,6 +1093,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 loadMenu();
 loadAnnouncement();
+
+const oldDailyMenu = document.querySelector('.daily-menu-new');
+
+if (oldDailyMenu) {
+    oldDailyMenu.remove();
+}
+
+loadDailyMenu();
         });
     });
 

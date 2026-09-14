@@ -682,13 +682,10 @@ p{
 }
 .daily-and-announcement {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px;
-    width: 100%;
-    margin: 30px auto 60px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
-
 .daily-and-announcement .announcement,
 .daily-and-announcement .menu-section {
     width: 400px;
@@ -959,7 +956,7 @@ p{
     padding: 40px;
     text-align: center;
 
-    background: rgba(0, 0, 0, 0.55);
+   
     border-radius: 16px;
 }
 
@@ -973,11 +970,20 @@ p{
     margin-bottom: 25px;
     padding-bottom: 10px;
 
+    width: 400px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
     border-bottom: 2px solid #1976D2;
 }
 
 .catering-page p {
-    font-size: 16px;
+     max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 25px;
     line-height: 1.6;
 }
 
@@ -1670,10 +1676,129 @@ html.intro-seen #site-intro {
 
     margin-top: 4px;
 }
+/* =========================
+   📌 DENNÉ MENU V ADMINKE
+   ========================= */
 
+#daily-menu-admin {
+    position: relative;
+    top: 10px;
+    z-index: 1000;
 
+    width: 400px;
+    max-width: 90%;
+    margin: 15px auto 25px;
+    padding: 15px;
 
+    background: #f7f0df;
+    border: 2px solid #1b4f72;
+    border-radius: 8px;
 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+#daily-menu-admin h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #1b4f72;
+}
+
+#daily-menu-admin img {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    margin: 8px auto;
+}
+
+#daily-menu-admin textarea {
+    width: 100%;
+    min-height: 70px;
+    box-sizing: border-box;
+}
+
+#daily-menu-admin select {
+    max-width: 150px;
+}
+
+@media (max-width: 600px) {
+    #daily-menu-admin {
+        width: 92%;
+        padding: 12px;
+    }
+
+    #daily-menu-admin img {
+        width: 230px;
+    }
+}
+#daily-menu-admin label {
+    color: #174a70;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+}
+.daily-menu-new {
+    width: 600px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.daily-menu-new-image {
+    position: relative;
+    width: 100%;
+}
+.daily-menu-new-image img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+.daily-menu-new-text {
+    position: absolute;
+    left: 8%;
+    top: 29%;
+    width: 84%;
+    height: 65%;
+    box-sizing: border-box;
+
+    padding: 20px 30px;
+
+    text-align: center;
+    color: #174a70;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.45;
+
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.daily-menu-preview-text {
+    color: #174a70;
+}
+.admin-back-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 18px;
+
+    
+    color: #ffffff;
+
+   
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.admin-back-button:hover {
+    opacity: 0.85;
+}
 
 @media (max-width: 800px) {
     /* =========================
@@ -1693,6 +1818,14 @@ html.intro-seen #site-intro {
 
     animation: intro-logo 2.2s ease forwards;
 }
+   .daily-menu-new {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .daily-menu-new-text {
+        font-size: 14px;
+    }
 
   body {
         background: none;
@@ -1911,6 +2044,32 @@ html.intro-seen #site-intro {
     overflow-wrap: break-word;
     word-break: normal;
 }
+.daily-menu-new {
+    width: 68% !important;
+    max-width: 75% !important;
+    margin: 0 auto !important;
+}
+
+.daily-menu-new-image {
+    width: 100%;
+}
+
+.daily-menu-new-image img {
+    width: 100% !important;
+    height: 450px !important;
+    object-fit: fill;
+}
+
+.daily-menu-new-text {
+    left: 10% !important;
+    top: 29% !important;
+    width: 80% !important;
+    height: 60% !important;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.35;
+    box-sizing: border-box;
+}
 
     /* =========================
    CATERING
@@ -1937,8 +2096,12 @@ html.intro-seen #site-intro {
 }
 
 .catering-page p {
-    font-size: 13px;
-    line-height: 1.5;
+    max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .catering-intro {
@@ -1946,9 +2109,16 @@ html.intro-seen #site-intro {
 }
 
 .catering-page h2 {
-    font-size: 20px;
-    margin-top: 35px;
-    margin-bottom: 18px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+
+    width: 250px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-bottom: 2px solid #1976D2;
 }
 
 .catering-services {
@@ -2233,11 +2403,13 @@ font-family: Georgia, "Times New Roman", serif;
        ========================= */
 
     .category-info {
-        margin: 10px 12px 22px;
-        padding: 11px 14px;
-        font-size: 12px;
-        line-height: 1.5;
-    }
+    width: 60%;
+    margin: 10px auto 22px;
+    padding: 11px 14px;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
 
     /* =========================
        O NÁS
