@@ -6,62 +6,60 @@
     box-sizing: border-box;
 }
 /*Большая коробка*/
-.category-tabs{ 
-  position: relative;
-  display: flex;
-  text-align: center;
-  max-width: 1300px;
-  margin: 50px auto;
-  justify-content: center; 
-  align-items: center;
-  gap: 16px;
-  flex-wrap: nowrap;     
-  overflow: visible;
-  padding: 20px 100px;
-  width: 100%;
- 
+.category-tabs{
+    position: relative;
+    display: flex;
+    text-align: center;
+    max-width: 1300px;
+    margin: 50px auto;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow: visible;
+    padding: 20px 100px;
+    width: 100%;
+
 }
 
 .category-tabs::-webkit-scrollbar{
-  display: none;
+    display: none;
 }
 .category-tabs::before{ /*Палочка*/
-  content:'';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left:150px;
-  right: 150px;
-  height:10px;
-  background-color: #ffffff;
-  z-index: 0;
-  filter: brightness(0) invert(1);
+    content:'';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:150px;
+    right: 150px;
+    height:10px;
+    background-color: #ffffff;
+    z-index: 0;
+    filter: brightness(0) invert(1);
 }
 .category-tabs::after{ /*Левая железка*/
-  content:'';
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  left: 60px;
-  width: 90px;
-  height: 80px;
-  background: url('./assets/jebalovo.png');
-  z-index: 0;
-  filter: brightness(0) invert(1);
+    content:'';
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 60px;
+    width: 90px;
+    height: 80px;
+    background: url('./assets/jebalovo.png');
+    z-index: 0;
+    filter: brightness(0) invert(1);
 }
 .skewer-konchalo{ /*Правая пипка*/
-  position: absolute;
-  top: 29%;
-  transform: translateY(-50%);
-  right: 90px;
-   width: 65px;
-  height: 46px;
-  background: url(./assets/konchalo.png);
-  z-index: 0;
-  filter: brightness(0)invert(1);
+    position: absolute;
+    top: 29%;
+    transform: translateY(-50%);
+    right: 90px;
+    width: 65px;
+    height: 46px;
+    background: url(./assets/konchalo.png);
+    z-index: 0;
+    filter: brightness(0)invert(1);
 }
-
-
 
 .category-tabs .tab-btn {
     position: relative;
@@ -98,24 +96,20 @@
     transition: all 0.2s ease;
 }
 
-
-
-
 /* Активная или нажатая кнопка */
 .category-tabs .tab-btn.active,/*Нажатая кнопка*/ .category-tabs .tab-btn:hover{/*Кнопка под мышкой*/
-  background-color: #1A3B6E;
-  color: #fff;
-  transform: translateY(-3px);
+    background-color: #1A3B6E;
+    color: #fff;
+    transform: translateY(-3px);
 }
-
 
 body {
     background-image:
-       /* linear-gradient(
-            rgba(0, 0, 0, 0.48),
-            rgba(0, 0, 0, 0.55)
-        ),*/
-        url('/finlandia.png');
+    /* linear-gradient(
+    rgba(0, 0, 0, 0.48),
+    rgba(0, 0, 0, 0.55)
+    ),*/
+    url('/finlandia.png');
 
     background-size: cover;
     background-position: center top;
@@ -127,8 +121,6 @@ body {
     margin: 0;
     padding: 20px;
 }
-
-
 
 /* Сетка карточек */
 .menu-container {
@@ -224,19 +216,19 @@ body {
     font-size: 14px;
     font-weight: bold;
     color: #1976D2;
-}       
+}
 
 h1{
-  color: #FFFFFF;
-  font-size: 50px;
+    color: #FFFFFF;
+    font-size: 50px;
 }
 p{
-  color: #FFFFFF;
-  font-size: 25px;
+    color: #FFFFFF;
+    font-size: 25px;
 }
 /* =========================
-   🍽️ MODAL БЛЮДА
-   ========================= */
+🍽️ MODAL БЛЮДА
+========================= */
 
 .dish-modal {
     display: none;
@@ -255,10 +247,9 @@ p{
     overflow-y: auto;
 }
 
-
 /* =========================
-   🖥️ КОМПЬЮТЕР
-   ========================= */
+🖥️ КОМПЬЮТЕР
+========================= */
 
 .dish-modal-content {
     position: relative;
@@ -278,12 +269,11 @@ p{
     box-sizing: border-box;
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 3px rgba(255, 255, 255, 0.4);
+    0 15px 50px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.4);
 
     text-align: center;
 }
-
 
 /* большая фотография */
 
@@ -305,14 +295,13 @@ p{
     box-sizing: border-box;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.4),
-        inset 0 0 0 3px #e8e8e8;
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px #e8e8e8;
 
     display: block;
 
     margin: 0 auto;
 }
-
 
 /* название */
 
@@ -328,7 +317,6 @@ p{
 
     margin: 20px 0 10px;
 }
-
 
 /* описание */
 
@@ -346,7 +334,6 @@ p{
     max-width: 500px;
 }
 
-
 /* цена */
 
 #modal-price {
@@ -358,7 +345,6 @@ p{
 
     font-weight: bold;
 }
-
 
 /* крестик */
 
@@ -389,10 +375,9 @@ p{
     transform: scale(1.15);
 }
 
-
 /* =========================
-   📱 ТЕЛЕФОН
-   ========================= */
+📱 ТЕЛЕФОН
+========================= */
 
 @media (max-width: 600px) {
 
@@ -471,7 +456,7 @@ p{
 }
 .catering-back-button {
     position: absolute;
-    
+
     top: 13px;
     right: 150px;
 
@@ -486,7 +471,7 @@ p{
 }
 .about-back-button {
     position: absolute;
-   
+
     top: 13px;
     right: 150px;
 
@@ -499,7 +484,7 @@ p{
     font-size: 14px;
     font-weight: bold;
 }
-    .kontakt-button {
+.kontakt-button {
     position: absolute;
     top: 20px;
     right: 140px;
@@ -515,7 +500,7 @@ p{
     font-size: 14px;
     font-weight: bold;
 
-   /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
+    /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
 }
 .place-button {
     position: absolute;
@@ -533,7 +518,7 @@ p{
     font-size: 14px;
     font-weight: bold;
 
-   /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
+    /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);*/
 }
 .catering-button {
     position: absolute;
@@ -667,7 +652,6 @@ p{
     justify-self: center;
 }
 
-
 .daily-menu-card img {
     width: 400px;
     height: 400px;
@@ -724,8 +708,8 @@ p{
     box-sizing: border-box;
 }
 /* =========================
-   🍽️ MODAL БЛЮДА
-   ========================= */
+🍽️ MODAL БЛЮДА
+========================= */
 
 .dish-modal {
     display: none;
@@ -744,10 +728,9 @@ p{
     overflow-y: auto;
 }
 
-
 /* =========================
-   🖥️ КОМПЬЮТЕР
-   ========================= */
+🖥️ КОМПЬЮТЕР
+========================= */
 
 .dish-modal-content {
     position: relative;
@@ -767,12 +750,11 @@ p{
     box-sizing: border-box;
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 3px rgba(255, 255, 255, 0.4);
+    0 15px 50px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.4);
 
     text-align: center;
 }
-
 
 /* большая фотография */
 
@@ -794,14 +776,13 @@ p{
     box-sizing: border-box;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.4),
-        inset 0 0 0 3px #e8e8e8;
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px #e8e8e8;
 
     display: block;
 
     margin: 0 auto;
 }
-
 
 /* название */
 
@@ -817,7 +798,6 @@ p{
 
     margin: 20px 0 10px;
 }
-
 
 /* описание */
 
@@ -835,7 +815,6 @@ p{
     max-width: 500px;
 }
 
-
 /* цена */
 
 #modal-price {
@@ -847,7 +826,6 @@ p{
 
     font-weight: bold;
 }
-
 
 /* крестик */
 
@@ -885,10 +863,9 @@ p{
     margin: 8px 0 12px;
 }
 
-
 /* =========================
-   📱 ТЕЛЕФОН
-   ========================= */
+📱 ТЕЛЕФОН
+========================= */
 
 @media (max-width: 600px) {
 
@@ -947,7 +924,7 @@ p{
     }
 }
 /* =========================
-   CATERING PAGE
+CATERING PAGE
 ========================= */
 
 .catering-page {
@@ -956,7 +933,6 @@ p{
     padding: 40px;
     text-align: center;
 
-   
     border-radius: 16px;
 }
 
@@ -979,7 +955,7 @@ p{
 }
 
 .catering-page p {
-     max-width: 800px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 
@@ -1013,7 +989,7 @@ p{
     font-size: 14px;
 }
 /* =========================
-   КНОПКА НАВЕРХ
+КНОПКА НАВЕРХ
 ========================= */
 
 #back-to-top {
@@ -1047,7 +1023,7 @@ p{
     transform: translateY(-3px);
 }
 /* =========================
-   БОКОВОЕ МЕНЮ
+БОКОВОЕ МЕНЮ
 ========================= */
 
 .menu-toggle {
@@ -1062,8 +1038,8 @@ p{
     border: none;
     border-radius: 50%;
 
-background: transparent;
-color: rgba(255, 255, 255, 0.75);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
 
     font-size: 24px;
     cursor: pointer;
@@ -1158,7 +1134,7 @@ html {
 
     margin: 50px 0 10;
     text-align: center;
-    
+
 }
 .bistro-title {
     font-family: Georgia, "Times New Roman", serif;
@@ -1171,7 +1147,7 @@ html {
     text-align: center;
 
     margin: 15 0 15px;
-    
+
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
 }
 .menu-card h3,
@@ -1181,7 +1157,7 @@ html {
     font-family: Georgia, "Times New Roman", serif;
 }
 /* =========================
-   CREATOR PAGE
+CREATOR PAGE
 ========================= */
 
 .creator-page {
@@ -1278,25 +1254,25 @@ html {
     background: #d96b43;
     border-color: #d96b43;
 }
-.creator-button { 
-    position: absolute; 
-    left: 23px; 
-    bottom: 22px; 
- 
+.creator-button {
+    position: absolute;
+    left: 23px;
+    bottom: 22px;
+
     color: rgba(255, 255, 255, 0.35) !important;
- 
-    font-family: Georgia, "Times New Roman", serif; 
+
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 10px !important;
-    font-weight: 400; 
- 
-    text-decoration: none; 
-    cursor: pointer; 
- 
-    transition: color 0.2s ease; 
+    font-weight: 400;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: color 0.2s ease;
 }
 .creator-back-button {
     position: absolute;
-   
+
     top: 13px;
     right: 150px;
 
@@ -1316,7 +1292,7 @@ html {
     opacity: 0.7;
 }
 /* =========================
-   LANGUAGE SWITCHER
+LANGUAGE SWITCHER
 ========================= */
 
 .language-switcher {
@@ -1357,7 +1333,7 @@ html {
 }
 
 /* =========================
-   ALLERGENS PAGE
+ALLERGENS PAGE
 ========================= */
 
 .allergens-page {
@@ -1446,7 +1422,7 @@ html {
     opacity: 0.7;
 }
 /* =========================
-   INTRO LOGO
+INTRO LOGO
 ========================= */
 
 #site-intro {
@@ -1516,16 +1492,16 @@ html.intro-seen #site-intro {
     display: none !important;
 }
 /* =========================
-   🇬🇷 МЕНЮ ТАВЕРНЫ
-   ========================= */
+🇬🇷 МЕНЮ ТАВЕРНЫ
+========================= */
 
 .menu-card {
     position: relative;
     background: #f7f0df;
     border: 2px solid #1b4f72;
     box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.3),
-        inset 0 0 0 3px rgba(255, 255, 255, 0.35);
+    0 5px 12px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.35);
     overflow: visible;
     height: auto;
     border-radius: 3px;
@@ -1556,10 +1532,9 @@ html.intro-seen #site-intro {
     z-index: 3;
 }
 
-
 /* =========================
-   🍽️ ФОТО КАК ТАРЕЛКА
-   ========================= */
+🍽️ ФОТО КАК ТАРЕЛКА
+========================= */
 
 .menu-card .menu-image {
     width: 100%;
@@ -1580,9 +1555,9 @@ html.intro-seen #site-intro {
     overflow: hidden;
 
     box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.35),
-        inset 0 0 0 3px #e8e8e8;
-    
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 3px #e8e8e8;
+
     position: relative;
     z-index: 2;
 }
@@ -1597,10 +1572,9 @@ html.intro-seen #site-intro {
     display: block;
 }
 
-
 /* =========================
-   📜 ТЕКСТ МЕНЮ
-   ========================= */
+📜 ТЕКСТ МЕНЮ
+========================= */
 
 .menu-card .card-content {
     position: relative;
@@ -1615,7 +1589,6 @@ html.intro-seen #site-intro {
 
     text-align: center;
 }
-
 
 /* название */
 .menu-card .card-content h3 {
@@ -1636,7 +1609,6 @@ html.intro-seen #site-intro {
     word-break: normal;
 }
 
-
 /* описание */
 .menu-card .description {
     color: #174a70;
@@ -1649,7 +1621,6 @@ html.intro-seen #site-intro {
     margin: 0 0 8px;
 }
 
-
 /* аллергены */
 .menu-card .allergens {
     color: #174a70;
@@ -1661,7 +1632,6 @@ html.intro-seen #site-intro {
     margin: 4px 0;
     opacity: 0.65;
 }
-
 
 /* цена */
 .menu-card .price {
@@ -1677,8 +1647,8 @@ html.intro-seen #site-intro {
     margin-top: 4px;
 }
 /* =========================
-   📌 DENNÉ MENU V ADMINKE
-   ========================= */
+📌 DENNÉ MENU V ADMINKE
+========================= */
 
 #daily-menu-admin {
     position: relative;
@@ -1782,10 +1752,8 @@ html.intro-seen #site-intro {
     margin: 20px;
     padding: 10px 18px;
 
-    
     color: #ffffff;
 
-   
     border-radius: 5px;
 
     text-decoration: none;
@@ -1812,7 +1780,7 @@ html.intro-seen #site-intro {
     padding: 70px 25px 30px;
     box-sizing: border-box;
 
-   background: rgba(18, 18, 18, 0.35);
+    background: rgba(18, 18, 18, 0.35);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-right: 1px solid rgba(255, 255, 255, 0.18);
@@ -1828,23 +1796,23 @@ html.intro-seen #site-intro {
 
 @media (max-width: 800px) {
     /* =========================
-       МОБИЛЬНЫЙ ФОН
-       ========================= */
-        #site-intro {
+    МОБИЛЬНЫЙ ФОН
+    ========================= */
+    #site-intro {
         background-image: url('/mobile-bg.png');
         background-size: 100% 100%;
         background-position: center;
     }
     .intro-logo {
-    width: 250px;
-    max-width: 80%;
-    height: auto;
-    position: relative;
-    top: -20px;
+        width: 250px;
+        max-width: 80%;
+        height: auto;
+        position: relative;
+        top: -20px;
 
-    animation: intro-logo 2.2s ease forwards;
-}
-   .daily-menu-new {
+        animation: intro-logo 2.2s ease forwards;
+    }
+    .daily-menu-new {
         width: 90%;
         max-width: 400px;
     }
@@ -1853,7 +1821,7 @@ html.intro-seen #site-intro {
         font-size: 14px;
     }
 
-  body {
+    body {
         background: none;
         font-family: Georgia, "Times New Roman", serif;
     }
@@ -1865,27 +1833,27 @@ html.intro-seen #site-intro {
         z-index: -1;
 
         background-image:
-          /*  linear-gradient(
-                rgba(0, 0, 0, 0.48),
-                rgba(0, 0, 0, 0.55)
-            ),*/
-            url('/sweden.png');
+        /*  linear-gradient(
+        rgba(0, 0, 0, 0.48),
+        rgba(0, 0, 0, 0.55)
+        ),*/
+        url('/sweden.png');
 
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
     }
     .language-switcher {
-    top: 12px;
-    right: 12px;
-    gap: 4px;
-}
+        top: 12px;
+        right: 12px;
+        gap: 4px;
+    }
 
-.language-btn {
-    font-size: 10px;
-    padding: 2px 4px;
-}
-      .allergens-content {
+    .language-btn {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+    .allergens-content {
         width: 92%;
         margin: 80px auto 40px;
         padding: 20px 10px;
@@ -1893,7 +1861,7 @@ html.intro-seen #site-intro {
 
     .allergens-content h1 {
         font-size: 32px;
-        
+
     }
 
     .allergens-intro {
@@ -1901,19 +1869,19 @@ html.intro-seen #site-intro {
         line-height: 1.5;
     }
     .allergens-intro {
-    width: 70%;
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 13px;
-    line-height: 1.5;
-}
+        width: 70%;
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 13px;
+        line-height: 1.5;
+    }
     .allergens-list {
-    width: 75%;
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
+        width: 75%;
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .allergens-list div {
         font-size: 13px;
@@ -1926,8 +1894,7 @@ html.intro-seen #site-intro {
         font-size: 11px;
     }
 
-    
-     #back-to-top {
+    #back-to-top {
         right: 15px;
         bottom: 15px;
 
@@ -1942,7 +1909,7 @@ html.intro-seen #site-intro {
     .grill-time {
         font-size: 30px;
     }
-   .menu-toggle {
+    .menu-toggle {
         top: 7px;
         left: 0px;
         right: auto;
@@ -1953,51 +1920,64 @@ html.intro-seen #site-intro {
     }
 
     .side-menu {
+        left: -300px;
+        right: auto;
+
         width: 280px;
-        right: -300px;
+
         padding: 65px 20px 25px;
+
+        background: rgba(18, 18, 18, 0.45);
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        z-index: 99999;
+    }
+
+    .side-menu.open {
+        left: 0;
     }
 
     .side-menu-links a {
         font-size: 16px;
     }
     .place-section {
-    width: 90%;
-    margin: 50px auto;
-    padding: 20px 15px;
-}
-.daily-and-announcement .announcement .category-title {
-    width: 400px;
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
+        width: 90%;
+        margin: 50px auto;
+        padding: 20px 15px;
+    }
+    .daily-and-announcement .announcement .category-title {
+        width: 400px;
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
 
+    .place-section h2 {
+        font-size: 22px;
+    }
 
-.place-section h2 {
-    font-size: 22px;
-}
+    .place-section p {
+        font-size: 13px;
+    }
 
-.place-section p {
-    font-size: 13px;
-}
+    .map-container {
+        margin-top: 20px;
+        border-radius: 10px;
+    }
 
-.map-container {
-    margin-top: 20px;
-    border-radius: 10px;
-}
+    .map-container iframe {
+        height: 280px;
+    }
 
-.map-container iframe {
-    height: 280px;
-}
+    .maps-button {
+        font-size: 13px;
+        padding: 9px 16px;
+    }
 
-.maps-button {
-    font-size: 13px;
-    padding: 9px 16px;
-}
-
- .creator-content {
+    .creator-content {
         width: 92%;
         padding: 25px 18px;
     }
@@ -2009,16 +1989,16 @@ html.intro-seen #site-intro {
     .creator-content h2 {
         font-size: 21px;
         max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .creator-content p {
         font-size: 13px;
         line-height: 1.5;
         max-width: 240px;
-    margin-left: auto;
-    margin-right: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .creator-socials {
@@ -2030,88 +2010,88 @@ html.intro-seen #site-intro {
         padding: 8px 14px;
     }
     .creator-back-button {
-    top: 17px;
+        top: 17px;
         right: 100px;
 
-    padding: 7px 12px;
-    font-size: 11px;
-}
-.about-back-button,
-.catering-back-button {
-    top: 11px;
-    right: 100px;
-    padding: 7px 12px;
-    font-size: 11px;
-}
-.menu-card .menu-image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+    .about-back-button,
+    .catering-back-button {
+        top: 11px;
+        right: 100px;
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+    .menu-card .menu-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
 
-    margin-top: -18px;
-    margin-bottom: 5px;
+        margin-top: -18px;
+        margin-bottom: 5px;
 
-    padding: 10px;
+        padding: 10px;
 
-    box-sizing: border-box;
+        box-sizing: border-box;
 
-    background: #ffffff;
-    border: 4px solid #1b4f72;
-    border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #1b4f72;
+        border-radius: 50%;
 
-    overflow: hidden;
+        overflow: hidden;
 
-    box-shadow:
+        box-shadow:
         0 5px 12px rgba(0, 0, 0, 0.35),
         inset 0 0 0 3px #e8e8e8;
-    
-    position: relative;
-    z-index: 2;
-}
-.menu-card .card-content h3 {
-    margin: 3px 0 6px;
 
-    color: #174a70;
+        position: relative;
+        z-index: 2;
+    }
+    .menu-card .card-content h3 {
+        margin: 3px 0 6px;
 
-    font-family: Georgia, "Times New Roman", serif;
+        color: #174a70;
 
-    font-size: 11px;
-    font-weight: bold;
+        font-family: Georgia, "Times New Roman", serif;
 
-    text-transform: uppercase;
+        font-size: 11px;
+        font-weight: bold;
 
-    line-height: 1.15;
+        text-transform: uppercase;
 
-    overflow-wrap: break-word;
-    word-break: normal;
-}
-.daily-menu-new {
-    width: 68% !important;
-    max-width: 75% !important;
-    margin: 0 auto !important;
-}
+        line-height: 1.15;
 
-.daily-menu-new-image {
-    width: 100%;
-}
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+    .daily-menu-new {
+        width: 68% !important;
+        max-width: 75% !important;
+        margin: 0 auto !important;
+    }
 
-.daily-menu-new-image img {
-    width: 100% !important;
-    height: 450px !important;
-    object-fit: fill;
-}
+    .daily-menu-new-image {
+        width: 100%;
+    }
 
-.daily-menu-new-text {
-    left: 10% !important;
-    top: 29% !important;
-    width: 80% !important;
-    height: 60% !important;
-    padding: 10px 12px;
-    font-size: 13px;
-    line-height: 1.35;
-    box-sizing: border-box;
-}
-.side-menu {
+    .daily-menu-new-image img {
+        width: 100% !important;
+        height: 450px !important;
+        object-fit: fill;
+    }
+
+    .daily-menu-new-text {
+        left: 10% !important;
+        top: 29% !important;
+        width: 80% !important;
+        height: 60% !important;
+        padding: 10px 12px;
+        font-size: 13px;
+        line-height: 1.35;
+        box-sizing: border-box;
+    }
+    .side-menu {
         left: -300px;
         right: auto;
 
@@ -2120,10 +2100,10 @@ html.intro-seen #site-intro {
 
         padding: 65px 24px 25px;
 
-       background: rgba(18, 18, 18, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-right: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(18, 18, 18, 0.35);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-right: 1px solid rgba(255, 255, 255, 0.18);
         z-index: 99999;
     }
 
@@ -2131,77 +2111,75 @@ html.intro-seen #site-intro {
         left: 0;
     }
 
-
-
     /* =========================
-   CATERING
-   ========================= */
+    CATERING
+    ========================= */
 
-.catering-button {
-    top: 14px;
-    right: 133px;
-    padding: 8px 12px;
-    font-size: 8px;
-}
+    .catering-button {
+        top: 14px;
+        right: 133px;
+        padding: 8px 12px;
+        font-size: 8px;
+    }
 
-.catering-page {
-    width: 92%;
-    max-width: none;
-    margin: 70px auto 35px;
-    padding: 20px 15px;
-    box-sizing: border-box;
-}
+    .catering-page {
+        width: 92%;
+        max-width: none;
+        margin: 70px auto 35px;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
 
-.catering-page h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
+    .catering-page h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
 
-.catering-page p {
-    max-width: 230px;
-    margin-left: auto;
-    margin-right: auto;
+    .catering-page p {
+        max-width: 230px;
+        margin-left: auto;
+        margin-right: auto;
 
-    font-size: 16px;
-    line-height: 1.6;
-}
+        font-size: 16px;
+        line-height: 1.6;
+    }
 
-.catering-intro {
-    font-size: 16px !important;
-}
+    .catering-intro {
+        font-size: 16px !important;
+    }
 
-.catering-page h2 {
-    margin-top: 45px;
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+    .catering-page h2 {
+        margin-top: 45px;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
 
-    width: 250px;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+        width: 250px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
 
-    border-bottom: 2px solid #1976D2;
-}
+        border-bottom: 2px solid #1976D2;
+    }
 
-.catering-services {
-    grid-template-columns: 1fr;
-    gap: 12px;
-}
+    .catering-services {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
 
-.catering-services > div {
-    padding: 16px 12px;
-}
+    .catering-services > div {
+        padding: 16px 12px;
+    }
 
-.catering-services h3 {
-    font-size: 16px;
-}
+    .catering-services h3 {
+        font-size: 16px;
+    }
 
-.catering-services p {
-    font-size: 12px;
-}
+    .catering-services p {
+        font-size: 12px;
+    }
     /* =========================
-       DAILY MENU + AKCIA
-       ========================= */
+    DAILY MENU + AKCIA
+    ========================= */
 
     .daily-and-announcement {
         flex-direction: column;
@@ -2229,40 +2207,40 @@ html.intro-seen #site-intro {
     }
 
     /* =========================
-       КАРТОЧКИ МЕНЮ
-       ========================= */
+    КАРТОЧКИ МЕНЮ
+    ========================= */
 
-   .menu-grid { 
-    grid-template-columns: repeat(2, 120px); 
-    justify-content: center;
-    gap: 8px; 
-    padding: 0 10px; 
-}
+    .menu-grid {
+        grid-template-columns: repeat(2, 120px);
+        justify-content: center;
+        gap: 8px;
+        padding: 0 10px;
+    }
 
-.category-title {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .category-title {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.menu-card { 
-    width: 120px;
-    height: auto; 
-    min-height: 0; 
-    border-radius: 8px; 
-}
-.menu-card .description {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    flex-grow: 0;
-}
-.menu-image { 
-    width: 100%;
-    height: 82px; 
-    object-fit: cover; 
-}
+    .menu-card {
+        width: 120px;
+        height: auto;
+        min-height: 0;
+        border-radius: 8px;
+    }
+    .menu-card .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex-grow: 0;
+    }
+    .menu-image {
+        width: 100%;
+        height: 82px;
+        object-fit: cover;
+    }
 
     .menu-card h3 {
         font-size: 13px;
@@ -2282,13 +2260,13 @@ html.intro-seen #site-intro {
         margin: 0 8px 8px;
     }
     .card-content {
-    padding: 5px 8px;
-    flex-grow: 0;
-}
+        padding: 5px 8px;
+        flex-grow: 0;
+    }
 
     /* =========================
-       КАТЕГОРИИ
-       ========================= */
+    КАТЕГОРИИ
+    ========================= */
 
     .category-tabs {
         position: relative;
@@ -2378,7 +2356,7 @@ html.intro-seen #site-intro {
     /* Кнопки категорий */
 
     .category-tabs .tab-btn {
-font-family: Georgia, "Times New Roman", serif;
+        font-family: Georgia, "Times New Roman", serif;
         position: relative;
         z-index: 9999 !important;
 
@@ -2411,8 +2389,8 @@ font-family: Georgia, "Times New Roman", serif;
     }
 
     /* =========================
-       ВЕРХНИЕ КНОПКИ
-       ========================= */
+    ВЕРХНИЕ КНОПКИ
+    ========================= */
 
     .about-button {
         top: 15px;
@@ -2434,11 +2412,10 @@ font-family: Georgia, "Times New Roman", serif;
         padding: 8px 12px;
         font-size: 8px;
     }
-    
 
     /* =========================
-       KONTAKT + KDE NÁS NÁJDETE
-       ========================= */
+    KONTAKT + KDE NÁS NÁJDETE
+    ========================= */
 
     .contact-section,
     .place-section {
@@ -2461,21 +2438,21 @@ font-family: Georgia, "Times New Roman", serif;
     }
 
     /* =========================
-       INFO POD КАТЕГОРИЕЙ
-       ========================= */
+    INFO POD КАТЕГОРИЕЙ
+    ========================= */
 
     .category-info {
-    width: 60%;
-    margin: 10px auto 22px;
-    padding: 11px 14px;
+        width: 60%;
+        margin: 10px auto 22px;
+        padding: 11px 14px;
 
-    font-size: 12px;
-    line-height: 1.5;
-}
+        font-size: 12px;
+        line-height: 1.5;
+    }
 
     /* =========================
-       O NÁS
-       ========================= */
+    O NÁS
+    ========================= */
 
     .about-page {
         max-width: 92%;
@@ -2489,12 +2466,12 @@ font-family: Georgia, "Times New Roman", serif;
     }
 
     .about-page p {
-    max-width: 230px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 13px;
-    line-height: 1.5;
-}
+        max-width: 230px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 13px;
+        line-height: 1.5;
+    }
 
     .chef-quote {
         margin-top: 35px;
@@ -2523,14 +2500,13 @@ font-family: Georgia, "Times New Roman", serif;
         font-size: 10px;
         margin: 3px 0;
         opacity: 0.55;
-        
+
     }
 }
 
-
 /* =========================
-   ADMIN PANEL
-   ========================= */
+ADMIN PANEL
+========================= */
 
 .admin-panel {
     max-width: 1000px;
@@ -2567,7 +2543,6 @@ font-family: Georgia, "Times New Roman", serif;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
-
 
 .admin-dish h3 {
     margin: 0 0 12px 0;
