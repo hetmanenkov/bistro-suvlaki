@@ -10,7 +10,9 @@ export default defineConfig({
                 catering: resolve(process.cwd(), 'catering.html'),
                 allergens: resolve(process.cwd(), 'allergens.html'),
                 admin: resolve(process.cwd(), 'admin.html'),
+                adminPanel: resolve(process.cwd(), 'admin-panel.html'),
                 creator: resolve(process.cwd(), 'creator.html')
+                
             }
         }
     }
