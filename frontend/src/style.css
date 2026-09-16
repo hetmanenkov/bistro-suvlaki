@@ -1800,6 +1800,32 @@ html.intro-seen #site-intro {
     opacity: 0.85;
 }
 
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    right: auto;
+
+    width: 300px;
+    height: 100vh;
+
+    padding: 70px 25px 30px;
+    box-sizing: border-box;
+
+   background: rgba(18, 18, 18, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+
+    z-index: 99999;
+
+    transition: left 0.3s ease;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
 @media (max-width: 800px) {
     /* =========================
        МОБИЛЬНЫЙ ФОН
@@ -2085,6 +2111,27 @@ html.intro-seen #site-intro {
     line-height: 1.35;
     box-sizing: border-box;
 }
+.side-menu {
+        left: -300px;
+        right: auto;
+
+        width: 280px;
+        height: 100vh;
+
+        padding: 65px 24px 25px;
+
+       background: rgba(18, 18, 18, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+        z-index: 99999;
+    }
+
+    .side-menu.open {
+        left: 0;
+    }
+
+
 
     /* =========================
    CATERING
