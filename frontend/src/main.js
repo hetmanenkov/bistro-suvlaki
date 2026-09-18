@@ -1,5 +1,9 @@
 
 import { supabase } from './supabase.js'
+import { inject } from '@vercel/analytics'
+
+// Initialize Vercel Analytics
+inject()
 const translations = {
     sk: {
         about: 'O nás',
